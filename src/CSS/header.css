@@ -1,0 +1,27 @@
+
+.headerLeft ul {
+    display: flex;
+    margin: 30px;
+    list-style: none;
+  }
+  
+  .headerLeft ul a {
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .headerLeft ul a li {
+    color: whitesmoke; 
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  
+  .headerLeft ul a li:hover {
+    color: #fbee61; 
+  }
+  
+  .headerLeft ul .nav-active {
+    position: relative;
+  }
+  
+  
