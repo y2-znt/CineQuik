@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
-import "../CSS/home.css";
+import "../CSS/carousel.css";
 import axios from "axios";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
 const DataFetcher = () => {
-  const [popularMovies, setPopularMovies] = useState([]);
+  const [carouselMovies, setCarouselMovies] = useState([]);
 
   useEffect(() => {
     axios
       .get(
-        "https://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63"
+        "https://api.themoviedb.org/3/trending/all/day?api_key=4e44d9029b1270a757cddc766a1bcb63"
       )
       .then((response) => {
-        setPopularMovies(response.data.results);
+        setCarouselMovies(response.data.results);
       });
   }, []);
 
@@ -25,8 +25,10 @@ const DataFetcher = () => {
         transitionTime={1000}
         infiniteLoop={true}
         showStatus={false}
+        swipeable={true}
+        emulateTouch={true}
       >
-        {popularMovies.map((movie, index) => (
+        {carouselMovies.map((movie, index) => (
           <div key={index}>
             <div className="posterImage">
               <img
@@ -38,14 +40,23 @@ const DataFetcher = () => {
             </div>
             <div className="posterImage__overlay">
               <div className="posterImage__title">
-                {movie ? movie.original_title : ""}
+                {movie ? movie.original_title || movie.original_name : ""}
+              </div>
+              <div className="posterImage__mediatype">
+                {
+                  movie ? (
+                    movie.media_type === "tv" ? "TV Serie" :
+                    movie.media_type === "movie" ? "Movie" :
+                    movie.media_type
+                  ) : ""
+                }
               </div>
               <div className="posterImage__runtime">
-                {movie ? movie.release_date : ""}
-                <p className="posterImage__raiting">
-                  {movie ? movie.vote_average : ""}
+                {movie ? movie.release_date || movie.first_air_date : ""}
+                <span className="posterImage__raiting">
+                  ⭐{movie ? movie.vote_average : ""}
                   <i className="fas fa-star" />{" "}
-                </p>
+                </span>
                 <div className="posterImage__description">
                   {movie ? movie.overview : ""}
                 </div>
