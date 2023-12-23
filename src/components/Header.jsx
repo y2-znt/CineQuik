@@ -8,31 +8,29 @@ const Header = () => {
             <div className='headerLeft'>
         {/* Unordered list for navigation links */}
         <ul>
-          {/* NavLink for the "Home" route */}
           <NavLink to="/" className={(nav) => (nav.isActive ? "nav-active" : "")}>
             <li>
                 Cine Verse
             </li>
           </NavLink>
-          {/* NavLink for the "About" route */}
           <NavLink
-            to="/movie/popular"
+            to="/movies"
             className={(nav) => (nav.isActive ? "nav-active" : "")}
           >
-            <li>Popular</li>
+            <li>Movies</li>
           </NavLink>
           <NavLink
-            to="/movie/top_rated"
+            to="/TVSeries"
             className={(nav) => (nav.isActive ? "nav-active" : "")}
           >
-            <li>Top Rated</li>
+            <li>TV Series</li>
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/movie/upcoming"
             className={(nav) => (nav.isActive ? "nav-active" : "")}
           >
             <li>Upcomming</li>
-          </NavLink>
+          </NavLink> */}
         </ul>
         </div>
       </div>

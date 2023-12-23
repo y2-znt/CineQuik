@@ -1,11 +1,14 @@
 import React from 'react';
-import DataFetcher from '../components/DataFetcher';
+import DataFetcher from '../components/Carousel';
+import MovieList from '../components/MovieList';
+import TVList from '../components/TVList';
 
 const Home = () => {
     return (
         <div>
             < DataFetcher />
-            Home page is now  available
+            < MovieList />
+            < TVList />
         </div>
     );
 };
