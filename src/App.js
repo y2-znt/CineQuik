@@ -5,8 +5,9 @@ import Home from "./pages/Home";
 import Header from "./components/Header";
 import MoviesPage from "./pages/MoviesPage";
 import TVList from "./components/TVList";
-import MovieDetail from "./components/DetailsMedia";
 import DetailsPage from "./pages/DetailsPage";
+import DetailsTVSeries from "./components/DetailsTVSeries";
+import DetailsMovies from "./components/DetailsMovies";
 
 const App = () => {
   return (

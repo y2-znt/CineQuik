@@ -1,12 +1,12 @@
 import React from 'react';
-import DataFetcher from '../components/Carousel';
+import Carousel from '../components/Carousel';
 import MovieList from '../components/MovieList';
 import TVList from '../components/TVList';
 
 const Home = () => {
     return (
         <div>
-            < DataFetcher />
+            < Carousel />
             < MovieList />
             < TVList />
         </div>

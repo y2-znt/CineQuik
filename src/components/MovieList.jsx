@@ -3,6 +3,7 @@ import Card from "./Card";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../CSS/movieList.css";
+import Searchbar from "./Searchbar";
 
 const MovieList = () => {
     const [movieLists, setMovieLists] = useState({ TrendMovieList: [], RatedMovieList: [] });
@@ -25,6 +26,7 @@ const MovieList = () => {
 
     return (
         <div className="media__list">
+            < Searchbar />
 
                     <h2 className="list__title">Trending movies</h2>
                     <div className="list__cards">

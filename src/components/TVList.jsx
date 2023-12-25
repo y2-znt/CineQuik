@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import "../CSS/movieList.css";
 const TVList = () => {
     const [TrendTVList, setTrendTVList] = useState([]);
     const [RatedTVSeries, setRatedTVSeries] = useState([]);
@@ -35,7 +35,7 @@ const TVList = () => {
     
 
     return (
-        <div className="movie__list">
+        <div className="media__list">
           <div>
             <h2 className="list__title">Trending TV Series</h2>
             <div className="list__cards">

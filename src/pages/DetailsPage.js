@@ -1,11 +1,12 @@
 import React from "react";
-import MovieDetail from "../components/DetailsMedia";
-import MovieList from "../components/MovieList";
+import DetailsMovies from "../components/DetailsMovies";
+import DetailsTVSeries from "../components/DetailsTVSeries";
 
 const DetailsPage = () => {
   return (
     <div>
-      <MovieDetail />
+      <DetailsMovies />
+      {/* < DetailsTVSeries /> */}
     </div>
   );
 };

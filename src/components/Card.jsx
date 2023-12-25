@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../CSS/card.css";
 import { NavLink } from "react-router-dom";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css"
+
 const Cards = ({ movie, tv }) => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -16,11 +15,7 @@ const Cards = ({ movie, tv }) => {
     <>
       {isLoading ? (
         <div className="cards">
-          <SkeletonTheme baseColor="#202020" highlightColor="#444">
-            <p>
-              <Skeleton count={6} />
-            </p>
-          </SkeletonTheme>
+
         </div>
       ) : (
         <NavLink

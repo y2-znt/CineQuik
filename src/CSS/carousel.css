@@ -11,6 +11,8 @@
     width: 100%;
     opacity: 50%;
     height: 150%;
+    opacity: 0;
+    animation: fadein 0.7s ease forwards 0.7s;
 }
 
 .posterImage__overlay {
@@ -23,6 +25,9 @@
     width: 100%;
     justify-content: flex-end;
     align-items: flex-start;
+    opacity: 0;
+    animation: fadein 1s ease forwards 1s;
+    visibility: hidden;
 }   
 
 .posterImage__title {

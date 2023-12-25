@@ -6,11 +6,28 @@
     font-size: 1.75rem;
     font-weight: 700;
     margin:  3rem 5rem ;
+
 }
 
 .list__cards {
     display: flex;
     flex-wrap: wrap ;
     justify-content: center;  
+    opacity: 0;
+    animation: flyinMedia 1s ease forwards 1s;
+    visibility: hidden;
 }
 
+@keyframes flyinMedia {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(50px);
+
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+      visibility: visible;
+    }
+  }
