@@ -5,12 +5,12 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
     return (
         <div className="header">
-            <div className='headerLeft'>
+            <div className='headerRight'>
         {/* Unordered list for navigation links */}
         <ul>
           <NavLink to="/" className={(nav) => (nav.isActive ? "nav-active" : "")}>
             <li>
-                Cine Verse
+                Home
             </li>
           </NavLink>
           <NavLink

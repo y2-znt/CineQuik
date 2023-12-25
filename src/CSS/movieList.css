@@ -1,17 +1,16 @@
-.movie__list {
-    padding: 0 1rem 1rem 1rem;
+.media__list {
+    padding: 1 1rem 1rem 1rem;
 }
 
 .list__title {
-font-size: 1.75rem;
-font-weight: 700;
-margin:  3rem 5rem ;
-
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin:  3rem 5rem ;
 }
 
 .list__cards {
     display: flex;
     flex-wrap: wrap ;
-    justify-content: center;
+    justify-content: center;  
 }
 

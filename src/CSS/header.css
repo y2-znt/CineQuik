@@ -1,31 +1,35 @@
 
-.headerLeft ul {
+.headerRight ul {
+    right: 20px;
+    position: absolute;
     display: flex;
-    margin: 30px;
+    margin: 20px;
     list-style: none;
+    z-index: 99;
   }
+
   
-  .headerLeft ul a {
+  .headerRight ul a {
     text-decoration: none;
     padding: 10px;
   }
   
-  .headerLeft ul a li {
+  .headerRight ul a li {
     color: whitesmoke; 
     transition: 0.2s;
     cursor: pointer;
   }
   
-  .headerLeft ul a li:hover {
+  .headerRight ul a li:hover {
     color: #fbee61; 
   }
   
-  .headerLeft ul .nav-active {
+  .headerRight ul .nav-active {
     position: relative;
   }
   
 
-  .headerLeft ul .nav-active::after {
+  .headerRight ul .nav-active::after {
     content: "";
     height: 2px;
     width: 0;
@@ -39,14 +43,8 @@
     animation: anim 0.6s ease forwards;
   }
   
-  @-webkit-keyframes anim {
-    to {
-      width: 100%;
-    }
-  }
-  
   @keyframes anim {
     to {
-      width: 100%;
+      width: 85%;
     }
   }

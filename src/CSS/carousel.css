@@ -1,7 +1,8 @@
 
-  
+
 .posterImage{
     height: 600px;
+    width: 100%;    
 }
 
 .posterImage > img {
@@ -16,7 +17,7 @@
     position: absolute;
     padding: 5rem;
     bottom: 0px;
-    height: 70%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     width: 100%;

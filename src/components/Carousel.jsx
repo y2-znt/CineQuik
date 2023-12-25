@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../CSS/carousel.css";
 import axios from "axios";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-import MovieList from "./MovieList";
+
+// Swiper Modules version 10
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination, Keyboard } from 'swiper/modules';
+import 'swiper/css/bundle';
 
 const DataFetcher = () => {
   const [carouselMovies, setCarouselMovies] = useState([]);
@@ -20,17 +22,17 @@ const DataFetcher = () => {
 
   return (
     <div className="poster">
-      <Carousel
-        showThumbs={false}
-        autoplay={true}
-        transitionTime={1000}
-        infiniteLoop={true}
-        showStatus={false}
-        swipeable={true}
-        emulateTouch={true}
+      <Swiper
+        modules={[Autoplay, Navigation, Pagination, Keyboard]}
+        spaceBetween={30}
+        slidesPerView={1}
+        loop={true}
+        keyboard={{enabled: true,}}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 3000 }}
       >
         {carouselMovies.map((movie, index) => (
-          <div key={index}>
+          <SwiperSlide key={index}>
             <div className="posterImage">
               <img
                 src={`https://image.tmdb.org/t/p/original${
@@ -44,28 +46,27 @@ const DataFetcher = () => {
                 {movie ? movie.original_title || movie.original_name : ""}
               </div>
               <div className="posterImage__mediatype">
-                {
-                  movie ? (
-                    movie.media_type === "tv" ? "TV Serie" :
-                    movie.media_type === "movie" ? "Movie" :
-                    movie.media_type
-                  ) : ""
-                }
+                {movie
+                  ? movie.media_type === "tv"
+                    ? "TV Serie"
+                    : movie.media_type === "movie"
+                    ? "Movie"
+                    : movie.media_type
+                  : ""}
               </div>
               <div className="posterImage__runtime">
                 {movie ? movie.release_date || movie.first_air_date : ""}
                 <span className="posterImage__raiting">
                   ⭐{movie ? movie.vote_average : ""}
-                  <i className="fas fa-star" />{" "}
                 </span>
                 <div className="posterImage__description">
                   {movie ? movie.overview : ""}
                 </div>
               </div>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </Carousel>
+      </Swiper>
     </div>
   );
 };
