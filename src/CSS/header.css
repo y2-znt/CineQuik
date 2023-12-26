@@ -48,3 +48,12 @@
       width: 85%;
     }
   }
+
+  @media screen and (max-width:720px) {
+    .headerRight ul {
+      margin: 0;
+    }
+    .headerRight a li {
+      font-size: .7rem;
+    }
+  }

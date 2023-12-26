@@ -1,6 +1,5 @@
 
 .media {
-    position: absolute;
     display: flex;
     flex-direction:column;
     align-items: center;
@@ -23,7 +22,7 @@
 
 .media__detail {
     align-items: center;
-    width: 70%;
+    max-width: 70%;
     display: flex;
     position: relative;
     bottom: 225px;
@@ -98,11 +97,10 @@
     display: flex;
     position: relative;
     align-items: center;
-    
 }
+
 .synopsisText > div:last-of-type {
     margin-left: auto;
-
 }
 
 .media__links {
@@ -115,9 +113,9 @@
 }
 
 .media__heading {
-    font-size: 2rem;
-    padding-right: 50px ;
+    font-size: 1.5rem;
     margin-bottom: 50px;
+    
 }
 
 .media__Button {
@@ -143,19 +141,21 @@
 
 .newTab {
     margin-left: 1.4rem;
+    
 }
 
 .media__production {
-    width: 85%;
+    max-width: 85%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     margin-bottom: 4rem;
+    
 }
 
 
 .media__productionComapany {
-    width: 200px;
+    width: 80px;
     margin: 2rem;
 }
 
@@ -166,6 +166,7 @@
     justify-content: center;
 }
 
+/* Animation */
 @keyframes zoomInPoster {
     0% {
         transform: scale(0.8);
@@ -206,13 +207,68 @@
     .media__backdrop {
         height: 300px;
     }
+    .media__name {
+        font-weight: 600;
+        font-size: 2rem;
+    }
     .media__poster {
         width: 250px;
+        margin-bottom: 150px;
     }
 
     .media__detail {
         margin-right: 50px;
-        margin-top: 50px;
+        margin-top: 80px;   
+    }
+
+    .media__detailRight {
+        max-width: 60%;
+    }
+
+}
+
+/* Responsive mobile  */
+@media screen and (max-width:720px) {
+    * {
+        font-size: 0.8rem;
+    }
+
+    .media__backdrop {
+        height: 200px;
+    }
+
+    .media__poster {
+        width: 120px;
+        margin-bottom: 300px;
+    }
+
+    .media__name {
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+    
+    .media__genre {
+        font-size: 0.5rem;
+        border-radius: 10px;
+        border: solid 0.2px;
+    }
+    .media__detail {
+        margin-right: 50px;
+        margin-top: 150px;
+        
+    }
+
+
+    .media__detailRightBottom {
+        margin-bottom: 70px;
+    }
+
+    .media__heading {
+        font-size: 1.2rem
+    }
+    .media__Button {
+        width: 100px;
+        margin-left: 15px;
     }
 
 }
