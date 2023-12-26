@@ -28,7 +28,6 @@
     height: 350px;
     display: flex;
     flex-direction: column;
-    width: 85%;
     justify-content: flex-end;
     background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
     opacity: 0;

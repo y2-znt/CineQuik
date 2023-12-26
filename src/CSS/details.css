@@ -1,3 +1,4 @@
+
 .media {
     position: absolute;
     display: flex;
@@ -9,7 +10,6 @@
 
 .media__intro {
     width: 100%;
-    
 }
 
 .media__backdrop {
@@ -18,13 +18,12 @@
     object-fit:cover;
     opacity: 0;
     object-position: 0 25%;
-    animation: fadein 1.5s ease forwards 1.5s;
-
+    animation: fadeinBackdrop 1.5s ease forwards 1.5s;
 }
 
 .media__detail {
     align-items: center;
-    width: 75%;
+    width: 70%;
     display: flex;
     position: relative;
     bottom: 225px;
@@ -70,10 +69,12 @@
 
 .media__genres {
     margin: 1.25rem 0;
+    display:flex;
 }
 
-.media__genre {
-    padding: .5rem;
+.media__genre {       
+    padding: .3rem 1rem;
+    font-size: 1rem;
     border: 2px solid white;
     border-radius: 20px;
     margin-right: 1rem;
@@ -114,7 +115,7 @@
 }
 
 .media__heading {
-    font-size: 2.2rem;
+    font-size: 2rem;
     padding-right: 50px ;
     margin-bottom: 50px;
 }
@@ -127,7 +128,7 @@
     padding: 0.8rem 2rem;
     border-radius: 20px;
     cursor: pointer;
-    width: 150px;
+    width: 220px;
     color: rgb(0, 0, 0);
     font-weight: bold;
 }
@@ -194,4 +195,24 @@
 @keyframes fadein {
     0% { opacity: 0; visibility: hidden; }
     100% { opacity: 1; visibility: visible; }
+}
+
+/* Responsive tablet */
+@media screen and (max-width:955px) {
+    * {
+        font-size: 1rem;
+    }
+
+    .media__backdrop {
+        height: 300px;
+    }
+    .media__poster {
+        width: 250px;
+    }
+
+    .media__detail {
+        margin-right: 50px;
+        margin-top: 50px;
+    }
+
 }
