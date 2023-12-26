@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Cards from "./Card"; 
-
+import "../CSS/searchbar.css"
 const Searchbar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
   const [movieData, setMovieData] = useState([]);
@@ -23,24 +23,24 @@ const Searchbar = ({ onSearch }) => {
     setQuery(inputQuery);
 
     if (inputQuery.length > 1) {
-      searchMovie(e);
+      searchMovie(e);   
     }
   };
 
   return (
     <div>
-      <form onSubmit={searchMovie}>
+      <form className="fieldSearching" onSubmit={searchMovie}>
         <input
+          className="input__search"
           type="text"
           placeholder="Movie search"
           value={query}
           onChange={changeHandler}
         />
-        <button type="submit">Search</button>
+        <button type="submit" className="btn__search">Search</button>
       </form>
 
       <div className="media__list">
-        <h2 className="list__title">Results</h2>
         <div className="list__cards">
           {movieData.map((movie) => (
             <Cards key={movie.id} movie={movie} />

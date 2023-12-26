@@ -3,21 +3,10 @@ import "../CSS/card.css";
 import { NavLink } from "react-router-dom";
 
 const Cards = ({ movie, tv }) => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 500);
-  }, []);
 
   return (
-    <>
-      {isLoading ? (
-        <div className="cards">
-
-        </div>
-      ) : (
+    <div>
+  
         <NavLink
           to={`/details/${movie?.id || tv?.id}`}
           style={{ textDecoration: "none", color: "white" }}
@@ -70,8 +59,8 @@ const Cards = ({ movie, tv }) => {
               </div>
           </div>
         </NavLink>
-      )}
-    </>
+      
+    </div>
   );
 };
 

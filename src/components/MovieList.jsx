@@ -7,11 +7,7 @@ import Searchbar from "./Searchbar";
 
 const MovieList = () => {
     const [movieLists, setMovieLists] = useState({ TrendMovieList: [], RatedMovieList: [] });
-    const { type } = useParams();
-
-    useEffect(() => {
-        getData(); // Appel initial au chargement du composant
-    }, [type]); // Déclenche getData() chaque fois que 'type' change
+    const [query, setQuery] = useState("");
 
     const getData = async () => {
         try {
@@ -24,10 +20,20 @@ const MovieList = () => {
         }
     };
 
+    useEffect(() => {
+        getData(); // Appel initial au chargement du composant
+    }, []);
+
+    const handleSearch = (searchQuery) => {
+        setQuery(searchQuery);
+    };
+
     return (
         <div className="media__list">
-            < Searchbar />
-
+            <Searchbar onSearch={handleSearch} />
+            
+            {query.length > 1 ? null : (
+                <>
                     <h2 className="list__title">Trending movies</h2>
                     <div className="list__cards">
                         {movieLists.TrendMovieList.map((movie) => (
@@ -41,7 +47,8 @@ const MovieList = () => {
                             <Card key={movie.id} movie={movie} />
                         ))}
                     </div>
-
+                </>
+            )}
         </div>
     );
 };
