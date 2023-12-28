@@ -13,7 +13,6 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
         {/* Defining routes using Routes and Route components */}
         <Routes>
           {/* Default route for Home */}

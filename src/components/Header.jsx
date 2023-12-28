@@ -1,40 +1,49 @@
-import React from 'react';
-import "../CSS/header.css"
-import { NavLink } from "react-router-dom";
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import '../CSS/header.css';
 
 const Header = () => {
-    return (
-        <div className="header">
-            <div className='headerRight'>
-        {/* Unordered list for navigation links */}
-        <ul>
-          <NavLink to="/" className={(nav) => (nav.isActive ? "nav-active" : "")}>
-            <li>
-                Home
+  const [showNav, setShowNav] = useState(false);
+
+  const toggleNav = () => {
+    setShowNav(!showNav);
+  };
+
+  const hideNav = () => {
+    setShowNav(false);
+  };
+
+  return (
+    <div className="header">
+      <div className='headerRight'>
+        <input type="checkbox" id="check" checked={showNav} onChange={toggleNav} />
+        <label htmlFor="check" className='checkbtn'>
+          <i className="fas fa-bars"></i>
+        </label>
+        <NavLink to="/">
+            <li className='logo'>
+            <img src="/img/logo.png"/>
+            CineQuick
             </li>
           </NavLink>
-          <NavLink
-            to="/movies"
-            className={(nav) => (nav.isActive ? "nav-active" : "")}
-          >
+        <ul className={showNav ? 'show' : ''}>
+
+          <NavLink to="/" onClick={hideNav}>
+            <li>
+              Home
+            </li>
+          </NavLink>
+          <NavLink to="/movies" onClick={hideNav}>
             <li>Movies</li>
           </NavLink>
-          <NavLink
-            to="/TVSeries"
-            className={(nav) => (nav.isActive ? "nav-active" : "")}
-          >
+          <NavLink to="/TVSeries" onClick={hideNav}>
             <li>TV Series</li>
           </NavLink>
-          {/* <NavLink
-            to="/movie/upcoming"
-            className={(nav) => (nav.isActive ? "nav-active" : "")}
-          >
-            <li>Upcomming</li>
-          </NavLink> */}
         </ul>
-        </div>
       </div>
-    );
+      <div className="overlay" onClick={hideNav}></div>
+    </div>
+  );
 };
 
 export default Header;

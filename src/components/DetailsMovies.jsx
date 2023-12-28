@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import axios from "axios";
 import "../CSS/details.css";
-import Searchbar from "./Searchbar";
+
 const DetailsMovies = () => {
-    
-    const [movieDetail, setMovieDetail] = useState()
+
+    const [movieDetail, setMovieDetail] = useState([])
+    const [similarMovies, setSimilarMovies] = useState([])
     const {id} = useParams();
 
     console.log({id});
@@ -20,10 +22,23 @@ const DetailsMovies = () => {
             .then((response) => {
                 setMovieDetail(response.data);
             })
+        axios
+            .get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=4e44d9029b1270a757cddc766a1bcb63`)
+            .then((response) => {
+                setSimilarMovies(response.data);
+            })
+
+
+
         }
     
         return (
             <div className="media">
+                <div className="media__backBtn">
+                <NavLink to="/Home">
+                    <i className="fas fa-arrow-left"></i>
+                </NavLink>
+                </div>
                 <div className="media__intro">
                     <img className="media__backdrop" src={`https://image.tmdb.org/t/p/original${movieDetail ? movieDetail.backdrop_path : ""}`} />
                 </div>
@@ -62,6 +77,12 @@ const DetailsMovies = () => {
                         
                     </div>
                 </div>
+                <h2 className="list__title">Similar movies</h2>
+                    <div className="list__cards">
+                        {/* {similarMovies.map((movie) => (
+                            <Card key={movie.id} movie={movie} />
+                        ))} */}
+                    </div>
                 <div className="media__links">
                     <div className="media__heading">Useful Links</div>
                     {

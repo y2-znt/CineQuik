@@ -40,6 +40,7 @@ const DataFetcher = () => {
                 }`}
                 alt={`Movie Poster ${index}`}
               />
+              
             </div>
             <div className="posterImage__overlay">
               <div className="posterImage__title">

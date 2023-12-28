@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Cards from "./Card"; 
 import "../CSS/searchbar.css"
+
+
 const Searchbar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
   const [movieData, setMovieData] = useState([]);

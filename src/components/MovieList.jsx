@@ -3,11 +3,9 @@ import Card from "./Card";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "../CSS/movieList.css";
-import Searchbar from "./Searchbar";
 
 const MovieList = () => {
     const [movieLists, setMovieLists] = useState({ TrendMovieList: [], RatedMovieList: [] });
-    const [query, setQuery] = useState("");
 
     const getData = async () => {
         try {
@@ -24,16 +22,9 @@ const MovieList = () => {
         getData(); // Appel initial au chargement du composant
     }, []);
 
-    const handleSearch = (searchQuery) => {
-        setQuery(searchQuery);
-    };
-
     return (
         <div className="media__list">
-            <Searchbar onSearch={handleSearch} />
-            
-            {query.length > 1 ? null : (
-                <>
+
                     <h2 className="list__title">Trending movies</h2>
                     <div className="list__cards">
                         {movieLists.TrendMovieList.map((movie) => (
@@ -47,8 +38,7 @@ const MovieList = () => {
                             <Card key={movie.id} movie={movie} />
                         ))}
                     </div>
-                </>
-            )}
+
         </div>
     );
 };
