@@ -1,3 +1,7 @@
+# View project
+The project is still under development ⏳ but you can see it  👉 [here]( https://yoni-deserbaix.github.io/Cine-Verse-App/)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
