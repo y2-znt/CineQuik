@@ -8,9 +8,9 @@
   margin-left: 80px;
 }
 .logo img{
-  width: 40px;
+  width: 30px;
   margin-right: 5px;
-  transform: translateY(8px);
+  transform: translateY(5px);
 }
 
 .headerRight ul {
@@ -20,23 +20,23 @@
     list-style: none;
     z-index: 99;
     font-size: 1.5rem;
-  }
+}
 
   
   .headerRight ul a {
     text-decoration: none;
     padding: 10px 20px;
-  }
+}
   
   .headerRight ul a li {
     color: whitesmoke; 
     transition: 0.2s;
     cursor: pointer;
-  }
+}
   
   .headerRight ul a li:hover {
     color: #fbee61; 
-  }
+}
 
 
  .checkbtn {
@@ -46,20 +46,19 @@
     position: fixed;
     cursor: pointer;
     z-index: 99;
-  }
+}
 
   .checkbtn .fas {
     color: whitesmoke;
     font-size: 20px;
     font-weight: 600;
-    background-color: rgba(0, 0, 0, 0.439);
     border-radius: 50px;
     padding: 10px 25px;
 }
 
   #check {
     display: none;
-  }
+}
 
 
   @keyframes anim {
@@ -68,65 +67,66 @@
     }
   }
 
+  /* Responsive mobile */
   @media screen and (max-width:720px) {
-    
-    .logo {
-      position: absolute;
-      margin: 5px 20px;
-      font-size: 1.7rem;
-      background-color: #0f0f0f;
-      width: 80%;
-    }
-
-    .logo img {
-      width: 30px;
-    }
-     .checkbtn {
-      display: block;
-    }
-    .checkbtn .fas {
-      font-size: 20px;
-      padding: 5px 7px;
-      font-weight:400;
+  
+  .logo {
+    position: absolute;
+    margin: 5px 20px;
+    font-size: 1.7rem;
+    background-color: #0f0f0f;
+    width: 80%;
   }
-    .headerRight ul {
-      display: block;
-      position: fixed;
-      top: 20px; /* Ajustez selon votre besoin */
-      right: -100%;
-      width: 40%;
-      height: 45vh;
-      flex-direction: column;
-      background-color: #333;
-      transition: all 0.3s ease;
-    }
-  
-    .headerRight ul li {
-      padding: 10px;
-      text-align: center;
-    }
-  
-    .headerRight ul li a {
-      color: #fff;
-    }
-  
-    .headerRight #check:checked ~ ul {
-      right: 0;
-    }
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 80px;
-      width: 100%;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.7);
-      z-index: 98;
-      transition: opacity 0.3s ease;
-    }
-  
-    .headerRight #check:checked ~ .overlay {
-      display: block;
-    }
 
+  .logo img {
+    width: 30px;
   }
+    .checkbtn {
+    display: block;
+  }
+  .checkbtn .fas {
+    font-size: 25px;
+    padding: 2px 7px;
+    font-weight:400;
+  }
+  .headerRight ul {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: -100%;
+    width: 40%;
+    height: 45vh;
+    flex-direction: column;
+    background-color: #333;
+    transition: all 0.3s ease;
+  }
+
+  .headerRight ul li {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .headerRight ul li a {
+    color: #fff;
+  }
+
+  .headerRight #check:checked ~ ul {
+    right: 0;
+  }
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 80px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 98;
+    transition: opacity 0.3s ease;
+  }
+
+  .headerRight #check:checked ~ .overlay {
+    display: block;
+  }
+
+}
   

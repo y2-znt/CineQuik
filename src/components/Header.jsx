@@ -22,7 +22,7 @@ const Header = () => {
         </label>
         <NavLink to="/">
             <li className='logo'>
-            <img src="/img/logo.png"/>
+              <img src="https://static.vecteezy.com/system/resources/previews/001/186/943/original/green-play-button-png.png" />
             CineQuick
             </li>
           </NavLink>
@@ -33,11 +33,11 @@ const Header = () => {
               Home
             </li>
           </NavLink>
-          <NavLink to="/movies" onClick={hideNav}>
-            <li>Movies</li>
+          <NavLink to="/popular-movies" onClick={hideNav}>
+            <li>Popular</li>
           </NavLink>
-          <NavLink to="/TVSeries" onClick={hideNav}>
-            <li>TV Series</li>
+          <NavLink to="/top-rated-movies" onClick={hideNav}>
+            <li>Top Rated</li>
           </NavLink>
         </ul>
       </div>

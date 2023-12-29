@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieList from '../components/MovieList';
+import PopularMovieList from '../components/PopularMovieList';
 import Searchbar from '../components/Searchbar';
 import Header from '../components/Header';
 
@@ -8,7 +8,7 @@ const MoviesPage = () => {
         <div>
             <Header />
             <Searchbar />
-            < MovieList />
+            <PopularMovieList />
         </div>
     );
 };

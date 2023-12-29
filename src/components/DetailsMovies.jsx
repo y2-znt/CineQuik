@@ -28,8 +28,6 @@ const DetailsMovies = () => {
                 setSimilarMovies(response.data);
             })
 
-
-
         }
     
         return (

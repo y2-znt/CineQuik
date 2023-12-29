@@ -13,7 +13,7 @@ const DataFetcher = () => {
   useEffect(() => {
     axios
       .get(
-        "https://api.themoviedb.org/3/trending/all/day?api_key=4e44d9029b1270a757cddc766a1bcb63"
+        "https://api.themoviedb.org/3/trending/movie/day?api_key=4e44d9029b1270a757cddc766a1bcb63"
       )
       .then((response) => {
         setCarouselMovies(response.data.results);
@@ -46,15 +46,7 @@ const DataFetcher = () => {
               <div className="posterImage__title">
                 {movie ? movie.original_title || movie.original_name : ""}
               </div>
-              <div className="posterImage__mediatype">
-                {movie
-                  ? movie.media_type === "tv"
-                    ? "TV Serie"
-                    : movie.media_type === "movie"
-                    ? "Movie"
-                    : movie.media_type
-                  : ""}
-              </div>
+  
               <div className="posterImage__runtime">
                 {movie ? movie.release_date || movie.first_air_date : ""}
                 <span className="posterImage__raiting">

@@ -2,12 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import Header from "./components/Header";
-import MoviesPage from "./pages/MoviesPage";
-import TVList from "./components/TVList";
+import PopularMoviesPage from "./pages/PopularMoviesPage";
 import DetailsPage from "./pages/DetailsPage";
-import DetailsTVSeries from "./components/DetailsTVSeries";
-import DetailsMovies from "./components/DetailsMovies";
+import TopRatedPage from "./pages/TopRatedPage";
 
 const App = () => {
   return (
@@ -17,9 +14,9 @@ const App = () => {
         <Routes>
           {/* Default route for Home */}
           <Route path="*" element={<Home />}></Route>
-          <Route path="/movies" element={<MoviesPage />}></Route>
-          <Route path="/TVSeries" element={<TVList />}></Route>
           <Route path="/details/:id" element={<DetailsPage />}></Route>
+          <Route path="/popular-movies" element={<PopularMoviesPage />}></Route>
+          <Route path="/top-rated-movies" element={<TopRatedPage />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

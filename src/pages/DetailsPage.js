@@ -6,7 +6,6 @@ const DetailsPage = () => {
   return (
     <div>
       <DetailsMovies />
-      {/* < DetailsTVSeries /> */}
     </div>
   );
 };
