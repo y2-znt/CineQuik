@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
 import axios from "axios";
 import SimilarMovies from "./SimilarMovies";
-import "../CSS/details.css";
 import VideosMovies from "./VideosMovies";
+import "../CSS/details.css";
 
 const DetailsMovies = () => {
 

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import YouTube from "react-youtube";
 import "../CSS/details.css";
+
+// link of library : https://www.npmjs.com/package/react-youtube
+import YouTube from "react-youtube";
 
 const VideosMovies = () => {
   const [videos, setVideos] = useState([]);

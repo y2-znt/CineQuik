@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../CSS/carousel.css";
 import axios from "axios";
 
+// link of library : https://swiperjs.com/
 // Swiper Modules version 10
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination, Keyboard } from 'swiper/modules';
