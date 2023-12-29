@@ -40,7 +40,8 @@ const VideosMovies = () => {
               videoId={video.key}
               opts={{
                 width: "100%",
-                height: "400px",
+                height: "500px",
+                
               }}
             />
             </div>

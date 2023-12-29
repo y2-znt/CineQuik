@@ -119,12 +119,11 @@
 
 .video__title {
     max-width: 80%;
+    margin-top: 10rem;
 }
 
 .video {
-    position: relative;
     margin: 1rem 0rem 3rem;
-    width: 50rem;
 }
 
 .media__links {
