@@ -1,6 +1,6 @@
 import React from "react";
 import DetailsMovies from "../components/DetailsMovies";
-import DetailsTVSeries from "../components/DetailsTVSeries";
+import SimilarMovies from "../components/SimilarMovies";
 
 const DetailsPage = () => {
   return (

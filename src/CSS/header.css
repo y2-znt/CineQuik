@@ -6,8 +6,9 @@
   z-index: 98;
   font-size: 2rem;
   margin-left: 80px;
+  margin-right: 25px;
 }
-.logo img{
+.logo img {
   width: 30px;
   margin-right: 5px;
   transform: translateY(5px);
@@ -113,6 +114,7 @@
   .headerRight #check:checked ~ ul {
     right: 0;
   }
+  
   .overlay {
     display: none;
     position: fixed;

@@ -114,10 +114,21 @@
 
 .synopsisText > div:last-of-type {
     margin-left: auto;
+    
+}
+
+.video__title {
+    max-width: 80%;
+}
+
+.video {
+    position: relative;
+    margin: 1rem 0rem 3rem;
+    width: 50rem;
 }
 
 .media__links {
-    margin-top: 35rem;
+    margin-top: 15rem;
     position: relative;
     bottom: 120px;
     display: flex;
@@ -233,7 +244,9 @@
     .media__detailRight {
         max-width: 60%;
     }
-
+    .video {
+        width: 100%;    
+    }
 }
 
 /* Responsive mobile  */
@@ -279,6 +292,11 @@
 
     .media__detailRightBottom {
         margin-bottom: 70px;
+    }
+
+    .video__title {
+        margin-top: 2rem;
+        font-size: 1.2rem;
     }
 
     .media__heading {

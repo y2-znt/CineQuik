@@ -2,34 +2,31 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
 import axios from "axios";
+import SimilarMovies from "./SimilarMovies";
 import "../CSS/details.css";
+import VideosMovies from "./VideosMovies";
 
 const DetailsMovies = () => {
 
     const [movieDetail, setMovieDetail] = useState([])
-    const [similarMovies, setSimilarMovies] = useState([])
     const {id} = useParams();
 
     console.log({id});
     useEffect (() => {
         getData()
         window.scrollTo(0, 0)
-    }, [])
+    }, [id])
     
+
     const getData = () => {
         axios
             .get(`https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63`)
             .then((response) => {
                 setMovieDetail(response.data);
             })
-        axios
-            .get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=4e44d9029b1270a757cddc766a1bcb63`)
-            .then((response) => {
-                setSimilarMovies(response.data);
-            })
-
-        }
     
+        }
+
         return (
             <div className="media">
                 <div className="media__backBtn">
@@ -75,12 +72,8 @@ const DetailsMovies = () => {
                         
                     </div>
                 </div>
-                <h2 className="list__title">Similar movies</h2>
-                    <div className="list__cards">
-                        {/* {similarMovies.map((movie) => (
-                            <Card key={movie.id} movie={movie} />
-                        ))} */}
-                    </div>
+                <VideosMovies />
+                  <SimilarMovies />
                 <div className="media__links">
                     <div className="media__heading">Useful Links</div>
                     {
