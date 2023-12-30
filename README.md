@@ -3,7 +3,7 @@
 
 ## Project Description
 
-CineQuik is a movie application using the TMDB API to provide an immersive cinema experience. The aim of this project was to create an application for movie enthusiasts to explore and discover detailed information about movies, trailers, and more.
+CineQuik is a movie application using the [TMDB](https://www.themoviedb.org/?language=fr) API to provide an immersive cinema experience. The aim of this project was to create an application for movie enthusiasts to explore and discover detailed information about movies, trailers, and more.
 
 ## View project 👀
 
@@ -11,6 +11,7 @@ Check out the project online 👉 [here](https://yoni-deserbaix.github.io/CineQu
 
 
 ## Screenshots 📸
+
 ### Home page :
 ![Home Page](https://github.com/Yoni-Deserbaix/CineQuik/blob/main/Screenshots/Home-page.png)
 ### Details Movie page :
