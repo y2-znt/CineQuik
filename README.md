@@ -1,74 +1,68 @@
-# View project
+# CineQuik 🎬🍿
+
+## Project Description
+
+CineQuik is a movie application using the TMDB API to provide an immersive cinema experience. The aim of this project was to create an application for movie enthusiasts to explore and discover detailed information about movies, trailers, and more.
+
+# View project 👀
 The project is still under development ⏳ but you can see it  👉 [here]( https://yoni-deserbaix.github.io/Cine-Verse-App/)
 
+## Features
 
-# Getting Started with Create React App
+- Movie search
+- Display of movies in "Popular" and "Top-rated" tabs
+- Detailed page for each movie displaying:
+  - Duration, rating, release date, etc.
+  - Trailer and other informational videos about the movie
+  - List of similar movies
+  - Links redirecting to the movie's website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies Used 🛠️
 
-## Available Scripts
+- React <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="15" alt="react logo"  /> 
+- JavaScript  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="15" alt="javascript logo"  />
+- [Axios](https://axios-http.com/) - for HTTP requests
+- [React Router DOM](https://github.com/remix-run/react-router) - for application navigation
+- [Swiper](https://swiperjs.com/) - for carousel and slide management
+- [React-Youtube](https://www.npmjs.com/package/react-youtube) - for YouTube video integration
+  
+## Usage
 
-In the project directory, you can run:
+1. Clone the GitHub repository to your local machine <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="15" alt="git logo" />:
 
-### `npm start`
+    ```bash
+    git clone https://github.com/Yoni-Deserbaix/Cine-Verse-App.git
+    ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Navigate to the project directory:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    ```bash
+    cd Cine-Verse-App
+    ```
 
-### `npm test`
+3. Install the dependencies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    ```bash
+    npm install 
+    ```
+4. Run the project:
 
-### `npm run build`
+    ```bash
+    npm start 
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Skills Gained 📚
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project allowed me to deepen my knowledge and skills in React, specifically:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **React Hooks:** Use of useState, useEffect, and useParams to manage state, effects, and parameters in my components.
+- **Library Documentation:** Learning to use and refer to third-party library documentation such as React-Youtube and Swiper to integrate specific functionalities.
 
-### `npm run eject`
+This experience not only helped me build this application but also enhanced my understanding and confidence in using these advanced React features and tools.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Inspirations 💭
+- https://github.com/PrinceRaaaj/IMDB-clone-ReactApp
+- https://github.com/trananhtuat/react-movie
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author 👨‍💻
+This project was created by me. Feel free to contact me for any questions or collaboration opportunities.
