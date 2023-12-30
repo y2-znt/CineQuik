@@ -13,7 +13,7 @@ const Footer = () => {
               src="https://static.vecteezy.com/system/resources/previews/001/186/943/original/green-play-button-png.png"
               alt="logo"
             />
-            <NavLink to="/">tMovies</NavLink>
+            <NavLink to="/">CineQuik</NavLink>
           </div>
         </div>
         <div className="footer__content__menus">
