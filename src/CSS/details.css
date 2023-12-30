@@ -12,6 +12,7 @@
     left: 40px;
     z-index: 1;
 }
+
 .media__backBtn .fas {
     color: whitesmoke;
     font-size: 20px;
@@ -114,7 +115,6 @@
 
 .synopsisText > div:last-of-type {
     margin-left: auto;
-    
 }
 
 .video__title {
@@ -139,7 +139,6 @@
 .media__heading {
     font-size: 1.5rem;
     margin-bottom: 50px;
-    
 }
 
 .media__Button {
@@ -174,7 +173,6 @@
     justify-content: center;
     align-items: flex-end;
     margin-bottom: 4rem;
-    
 }
 
 .media__productionComapany {
@@ -199,21 +197,21 @@
         transform: scale(1);
         visibility: visible;
     }
-    }
+}
       
 @keyframes flyin {
     0% {
       opacity: 0;
       visibility: hidden;
       transform: translateY(-50px);
-
     }
+
     100% {
       opacity: 1;
       transform: translateY(0);
       visibility: visible;
     }
-  }
+}
 
 
 @keyframes fadein {
@@ -310,5 +308,4 @@
     .newTab {
         font-size: .7rem;
     }
-
 }

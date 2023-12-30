@@ -30,7 +30,7 @@ const DataFetcher = () => {
         loop={true}
         keyboard={{enabled: true,}}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 4000 }}
       >
         {carouselMovies.map((movie, index) => (
           <SwiperSlide key={index}>

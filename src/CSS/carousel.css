@@ -1,5 +1,4 @@
 
-
 .posterImage{
     height: 600px;
     width: 100%;    
@@ -12,7 +11,7 @@
     opacity: 50%;
     height: 150%;
     opacity: 0;
-    animation: fadeinBackdrop 1.5s ease forwards 1s;
+    animation: fadeinBackdrop 1s ease forwards 1s;
 }
 
 .posterImage__overlay {
