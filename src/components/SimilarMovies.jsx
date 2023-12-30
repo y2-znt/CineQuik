@@ -26,7 +26,7 @@ const SimilarMovies = () => {
 
   return (
     <div>
-      <div className="media__list">
+      <div className="movie__list">
         <h2 className="list__title">Similar Movies</h2>
         <div className="list__cards">
           {similarMovies.slice(0,10).map((movie) => (

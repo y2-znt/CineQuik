@@ -38,14 +38,13 @@ const VideosMovies = () => {
           <div className="video__container">
             <h2 className="video__title">{video.name}</h2>
             <div className="video">
-            <YouTube
-              videoId={video.key}
-              opts={{
-                width: "100%",
-                height: "500px",
-                
-              }}
-            />
+              <YouTube
+                videoId={video.key}
+                opts={{
+                  width: "100%",
+                  height: "500px",
+                }}
+              />
             </div>
           </div>
         </div>

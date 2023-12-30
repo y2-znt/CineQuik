@@ -1,19 +1,19 @@
 
-.media {
+.movie {
     display: flex;
     flex-direction:column;
     align-items: center;
     z-index: -1;
 }
 
-.media__backBtn {
+.movie__backBtn {
     position: fixed;
     top: 30px;
     left: 40px;
     z-index: 1;
 }
 
-.media__backBtn .fas {
+.movie__backBtn .fas {
     color: whitesmoke;
     font-size: 20px;
     font-weight: 600;
@@ -22,11 +22,11 @@
     padding: 10px 25px;
 }
 
-.media__intro {
+.movie__intro {
     width: 100%;
 }
 
-.media__backdrop {
+.movie__backdrop {
     width: 100%;
     height: 500px;
     object-fit:cover;
@@ -35,7 +35,7 @@
     animation: fadeinBackdrop 1.5s ease forwards 1.5s;
 }
 
-.media__detail {
+.movie__detail {
     align-items: center;
     max-width: 70%;
     display: flex;
@@ -46,11 +46,11 @@
     visibility: hidden;
 }
 
-.media__detailLeft {
+.movie__detailLeft {
     margin-right: 30px;
 }
 
-.media__poster {
+.movie__poster {
     width:350px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.86) 0px 22px 40px 6px; 
@@ -58,7 +58,7 @@
     visibility: hidden;
 }
 
-.media__detailRight {
+.movie__detailRight {
     color: white;
     display: flex;
     flex-direction: column;
@@ -66,26 +66,26 @@
     justify-content:space-between;
 }
 
-.media__detailRightTop > div{
+.movie__detailRightTop > div{
     text-shadow: 0px 0px 5px #000000;
     margin-bottom: .5rem;
 }
 
-.media__name {
+.movie__name {
     font-weight: 600;
     font-size: 3rem;
 }
 
-.media__voteCount {
+.movie__voteCount {
     margin-left: 1rem;
 }
 
-.media__genres {
+.movie__genres {
     margin: 1.25rem 0;
     display:flex;
 }
 
-.media__genre {       
+.movie__genre {       
     padding: .3rem 1rem;
     font-size: 1rem;
     border: 2px solid white;
@@ -99,7 +99,7 @@
 }
 
 
-.media__detailRightBottom {
+.movie__detailRightBottom {
     margin: 2rem 0;
     flex: 0.8;
 }
@@ -119,6 +119,7 @@
 
 .video__title {
     max-width: 80%;
+    margin-left: 1rem;
     margin-top: 10rem;
 }
 
@@ -127,7 +128,7 @@
     width: 60rem;
 }
 
-.media__links {
+.movie__links {
     margin-top: 15rem;
     position: relative;
     bottom: 120px;
@@ -136,12 +137,12 @@
     width: 75%;
 }
 
-.media__heading {
+.movie__heading {
     font-size: 1.5rem;
     margin-bottom: 50px;
 }
 
-.media__Button {
+.movie__Button {
     display: flex;
     margin-left: 50px;
     justify-content: center;
@@ -154,11 +155,11 @@
     font-weight: bold;
 }
 
-.media__homeButton {
+.movie__homeButton {
     background-color:rgb(255, 255, 255);   
 }
 
-.media__imdbButton {
+.movie__imdbButton {
     background-color:#f3ce13;
 }
 
@@ -167,7 +168,7 @@
     
 }
 
-.media__production {
+.movie__production {
     max-width: 85%;
     display: flex;
     justify-content: center;
@@ -175,7 +176,7 @@
     margin-bottom: 4rem;
 }
 
-.media__productionComapany {
+.movie__productionComapany {
     width: 80px;
     margin: 2rem;
 }
@@ -222,24 +223,24 @@
 /* Responsive tablet */
 @media screen and (max-width:955px) {
 
-    .media__backdrop {
+    .movie__backdrop {
         height: 300px;
     }
-    .media__name {
+    .movie__name {
         font-weight: 600;
         font-size: 2rem;
     }
-    .media__poster {
+    .movie__poster {
         width: 250px;
         margin-bottom: 150px;
     }
 
-    .media__detail {
+    .movie__detail {
         margin-right: 50px;
         margin-top: 80px;   
     }
 
-    .media__detailRight {
+    .movie__detailRight {
         max-width: 60%;
     }
     .video {
@@ -252,43 +253,43 @@
     * {
         font-size: 0.8rem;
     }
-    .media__backBtn {
+    .movie__backBtn {
         top: 20px;
         left: 20px;
     }
 
-    .media__backBtn .fas {
+    .movie__backBtn .fas {
         font-size: 20px;
         padding: 7px 16px;
         font-weight:400;
     }
 
-    .media__backdrop {
+    .movie__backdrop {
         height: 200px;
     }
 
-    .media__poster {
+    .movie__poster {
         width: 120px;
         margin-bottom: 300px;
     }
 
-    .media__name {
+    .movie__name {
         font-weight: 600;
         font-size: 1.2rem;
     }
     
-    .media__genre {
+    .movie__genre {
         font-size: 0.5rem;
         border-radius: 10px;
         border: solid 0.2px;
     }
-    .media__detail {
+    .movie__detail {
         margin-right: 50px;
         margin-top: 150px;
         
     }
 
-    .media__detailRightBottom {
+    .movie__detailRightBottom {
         margin-bottom: 70px;
     }
 
@@ -297,10 +298,10 @@
         font-size: 1.2rem;
     }
 
-    .media__heading {
+    .movie__heading {
         font-size: 1.2rem
     }
-    .media__Button {
+    .movie__Button {
         width: 100px;
         margin-left: 15px;
     }

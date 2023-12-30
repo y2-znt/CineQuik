@@ -17,7 +17,7 @@ const MovieList = () => {
   }, []);
 
   return (
-    <div className="media__list">
+    <div className="movie__list">
       <h2 className="list__title">Popular Movies</h2>
       <div className="list__cards">
         {movieLists.map((movie) => (
