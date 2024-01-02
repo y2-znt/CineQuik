@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-// Déclaration des composants de page de manière asynchrone avec React.lazy()
+// Declaration of page components asynchronously using React.lazy()
 const Home = React.lazy(() => import("./pages/Home"));
 const PopularMoviesPage = React.lazy(() => import("./pages/PopularMoviesPage"));
 const DetailsPage = React.lazy(() => import("./pages/DetailsPage"));
