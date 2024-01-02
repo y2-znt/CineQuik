@@ -22,7 +22,7 @@ const Header = () => {
         </label>
         <NavLink to="/">
             <li className='logo'>
-              <img src="https://static.vecteezy.com/system/resources/previews/001/186/943/original/green-play-button-png.png" />
+              <img src="https://static.vecteezy.com/system/resources/previews/001/186/943/original/green-play-button-png.png" alt='logo' />
             CineQuick
             </li>
           </NavLink>
