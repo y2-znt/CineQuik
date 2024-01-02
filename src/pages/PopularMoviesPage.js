@@ -1,16 +1,19 @@
-import React from 'react';
-import PopularMovieList from '../components/PopularMovieList';
-import Searchbar from '../components/Searchbar';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import React, { Suspense } from 'react';
+
+const Header = React.lazy(() => import('../components/Header'));
+const Searchbar = React.lazy(() => import('../components/Searchbar'));
+const PopularMovieList = React.lazy(() => import('../components/PopularMovieList'));
+const Footer = React.lazy(() => import('../components/Footer'));
 
 const MoviesPage = () => {
     return (
         <div>
-            <Header />
-            <Searchbar />
-            <PopularMovieList />
-            <Footer />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Header />
+                <Searchbar />
+                <PopularMovieList />
+                <Footer />
+            </Suspense>
         </div>
     );
 };

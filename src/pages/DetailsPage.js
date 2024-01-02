@@ -1,12 +1,15 @@
-import React from "react";
-import DetailsMovies from "../components/DetailsMovies";
-import Footer from "../components/Footer";
+import React, { Suspense } from "react";
+
+const DetailsMovies = React.lazy(() => import("../components/DetailsMovies"));
+const Footer = React.lazy(() => import("../components/Footer"));
 
 const DetailsPage = () => {
   return (
     <div>
-      <DetailsMovies />
-      <Footer />
+      <Suspense fallback={<div>Loading...</div>}>
+        <DetailsMovies />
+        <Footer />
+      </Suspense>
     </div>
   );
 };

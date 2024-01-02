@@ -1,16 +1,19 @@
-import React from 'react';
-import TopRatedMovieList from '../components/TopRatedMovieList';
-import Header from '../components/Header';
-import Searchbar from '../components/Searchbar';
-import Footer from '../components/Footer';
+import React, { Suspense } from 'react';
+
+const Header = React.lazy(() => import('../components/Header'));
+const Searchbar = React.lazy(() => import('../components/Searchbar'));
+const TopRatedMovieList = React.lazy(() => import('../components/TopRatedMovieList'));
+const Footer = React.lazy(() => import('../components/Footer'));
 
 const TopRatedPage = () => {
     return (
         <div>
-            <Header />
-            <Searchbar />
-            <TopRatedMovieList />
-            <Footer />
+            <Suspense fallback={<div>Loading...</div>}>
+                <Header />
+                <Searchbar />
+                <TopRatedMovieList />
+                <Footer />
+            </Suspense>
         </div>
     );
 };
