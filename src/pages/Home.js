@@ -1,24 +1,22 @@
-import React, { Suspense } from 'react';
-const Carousel = React.lazy(() => import('../components/Carousel'));
-const PopularMovieList = React.lazy(() => import('../components/PopularMovieList'));
-const TopRatedMovieList = React.lazy(() => import('../components/TopRatedMovieList'));
-const Header = React.lazy(() => import('../components/Header'));
-const Searchbar = React.lazy(() => import('../components/Searchbar'));
-const Footer = React.lazy(() => import('../components/Footer'));
+import React from 'react';
+import Carousel from '../components/Carousel';
+import PopularMovieList from '../components/PopularMovieList';
+import TopRatedMovieList from '../components/TopRatedMovieList';
+import Header from '../components/Header';
+import Searchbar from '../components/Searchbar';
+import Footer from '../components/Footer';
 
 const Home = () => {
-  return (
-    <div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Header />
-        <Carousel />
-        <Searchbar />
-        <PopularMovieList />
-        <TopRatedMovieList />
-        <Footer />
-      </Suspense>
-    </div>
-  );
+    return (
+        <div>
+            <Header />
+            <Carousel />
+            <Searchbar />
+            <PopularMovieList />
+            <TopRatedMovieList />
+            <Footer />
+        </div>
+    );
 };
 
 export default Home;

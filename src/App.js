@@ -1,26 +1,23 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-
-// Declaration of page components asynchronously using React.lazy()
-const Home = React.lazy(() => import("./pages/Home"));
-const PopularMoviesPage = React.lazy(() => import("./pages/PopularMoviesPage"));
-const DetailsPage = React.lazy(() => import("./pages/DetailsPage"));
-const TopRatedPage = React.lazy(() => import("./pages/TopRatedPage"));
+import Home from "./pages/Home";
+import PopularMoviesPage from "./pages/PopularMoviesPage";
+import DetailsPage from "./pages/DetailsPage";
+import TopRatedPage from "./pages/TopRatedPage";
 
 const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            {/* Default route for Home */}
-            <Route path="*" element={<Home />} />
-            <Route path="/details/:id" element={<DetailsPage />} />
-            <Route path="/popular-movies" element={<PopularMoviesPage />} />
-            <Route path="/top-rated-movies" element={<TopRatedPage />} />
-          </Routes>
-        </Suspense>
+        {/* Defining routes using Routes and Route components */}
+        <Routes>
+          {/* Default route for Home */}
+          <Route path="*" element={<Home />}></Route>
+          <Route path="/details/:id" element={<DetailsPage />}></Route>
+          <Route path="/popular-movies" element={<PopularMoviesPage />}></Route>
+          <Route path="/top-rated-movies" element={<TopRatedPage />}></Route>
+        </Routes>
       </BrowserRouter>
     </div>
   );
