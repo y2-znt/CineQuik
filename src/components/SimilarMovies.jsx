@@ -17,7 +17,7 @@ const SimilarMovies = () => {
     axios
       .get(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=4e44d9029b1270a757cddc766a1bcb63`)
       .then((response) => {
-        setSimilarMovies(response.data.results); // Si response.data.results est null ou undefined, définissez un tableau vide
+        setSimilarMovies(response.data.results); 
       })
       .catch((error) => {
         console.error("Error fetching similar movies:", error);

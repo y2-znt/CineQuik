@@ -13,6 +13,9 @@ const MovieList = () => {
       )
       .then((response) => {
         setMovieLists(response.data.results);
+      })
+      .catch((error) => {
+        console.error("Error fetching popular movies:", error);
       });
   }, []);
 

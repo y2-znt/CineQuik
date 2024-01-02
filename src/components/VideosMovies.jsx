@@ -10,11 +10,6 @@ const VideosMovies = () => {
   const [videos, setVideos] = useState([]);
   const { id } = useParams();
 
-  useEffect(() => {
-    getData();
-    window.scrollTo(0, 0);
-  }, [id]);
-
   const getData = () => {
     axios
       .get(
@@ -30,6 +25,11 @@ const VideosMovies = () => {
         console.error("Error fetching videos:", error);
       });
   };
+
+  useEffect(() => {
+    getData();
+    window.scrollTo(0, 0);
+  }, [id]);
 
   return (
     <div>

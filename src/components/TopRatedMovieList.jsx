@@ -13,6 +13,9 @@ const TopRatedMovieList = () => {
       )
       .then((response) => {
         setMovieLists(response.data.results);
+      })
+      .catch((error) => {
+        console.error("Error fetching top rated movies:", error);
       });
   }, []);
 

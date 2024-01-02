@@ -18,6 +18,9 @@ const DataFetcher = () => {
       )
       .then((response) => {
         setCarouselMovies(response.data.results);
+      })
+      .catch((error) => {
+        console.error("Error fetching carousel movies:", error);
       });
   }, []);
 

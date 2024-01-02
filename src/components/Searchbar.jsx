@@ -15,7 +15,7 @@ const Searchbar = ({ onSearch }) => {
       setMovieData(data.results);
       onSearch(data.results);
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching movies:", error);
     }
   };
 

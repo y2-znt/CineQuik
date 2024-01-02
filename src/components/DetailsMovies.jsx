@@ -23,6 +23,9 @@ const DetailsMovies = () => {
       )
       .then((response) => {
         setMovieDetail(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching details movies:", error);
       });
   };
 
