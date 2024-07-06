@@ -75,5 +75,28 @@ This project allowed me to deepen my knowledge and skills in React, specifically
 
 This experience not only helped me build this application but also enhanced my understanding and confidence in using these advanced React features and tools.
 
-## Author 👨‍💻
-This project was created by me. Feel free to contact me for any questions or collaboration opportunities.
+## 🔧 Contributing
+
+[![contributors](https://contrib.rocks/image?repo=Yoni-Deserbaix/CineQuik)](https://github.com/Yoni-Deserbaix/CineQuik/graphs/contributors)
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and
+create. Any contributions you make are **greatly appreciated**.
+
+To fix a bug or enhance an existing module, follow these steps:
+
+1. Fork the repo
+2. Create a new branch (`git checkout -b improve-feature`)
+3. Make the appropriate changes in the files
+4. Commit your changes (`git commit -am 'Improve feature'`)
+5. Push to the branch (`git push origin improve-feature`)
+6. Create a Pull Request 🎉
+
+### 📩 Bug / Feature Request
+
+If you find a bug (failure of a module to execute its intended function), kindly open an issue
+[here](https://github.com/Yoni-Deserbaix/CineQuik/issues/new) by including the issue with a
+title and clear description.
+
+If you'd like to request a new function, feel free to do so by opening an issue
+[here](https://github.com/Yoni-Deserbaix/CineQuik/issues/new). Please include sample queries
+and their corresponding results.
