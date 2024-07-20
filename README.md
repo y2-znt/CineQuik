@@ -7,7 +7,7 @@ CineQuik is a movie application using the [TMDB](https://www.themoviedb.org/?lan
 
 ## View project 👀
 
-Check out the project online 👉 [here](https://yoni-deserbaix.github.io/CineQuik/)
+Check out the project online 👉 [here](https://cinequik.vercel.app/)
 
 
 ## Screenshots 📸
