@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchDetailsMovies } from "../api/fetchDetailsMovies";
 import "../CSS/details.css";
 import SimilarMovies from "./SimilarMovies";
@@ -25,9 +25,9 @@ const DetailsMovies = () => {
   return (
     <div className="movie">
       <div className="movie__backBtn">
-        <NavLink to="/Home">
+        <span onClick={() => history.back()}>
           <i className="fas fa-arrow-left"></i>
-        </NavLink>
+        </span>
       </div>
       <div className="movie__intro">
         <img
