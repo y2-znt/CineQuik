@@ -1,31 +1,26 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
 import { NavLink, useParams } from "react-router-dom";
+import { fetchDetailsMovies } from "../api/fetchDetailsMovies";
 import "../CSS/details.css";
 import SimilarMovies from "./SimilarMovies";
 import VideosMovies from "./VideosMovies";
 
 const DetailsMovies = () => {
-  const [movieDetail, setMovieDetail] = useState([]);
   const { id } = useParams();
 
-  useEffect(() => {
-    getData();
-    window.scrollTo(0, 0);
-  }, [id]);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["detailsMovies", id],
+    queryFn: () => fetchDetailsMovies(id),
+    onSuccess: (data) => {
+      if (!data) {
+        throw new Error("Query data cannot be undefined");
+      }
+    },
+  });
 
-  const getData = () => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63`
-      )
-      .then((response) => {
-        setMovieDetail(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching details movies:", error);
-      });
-  };
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error fetching movie details: {error.message}</div>;
 
   return (
     <div className="movie">
@@ -38,7 +33,7 @@ const DetailsMovies = () => {
         <img
           className="movie__backdrop"
           src={`https://image.tmdb.org/t/p/original${
-            movieDetail ? movieDetail.backdrop_path : ""
+            data ? data.backdrop_path : ""
           }`}
         />
       </div>
@@ -48,34 +43,30 @@ const DetailsMovies = () => {
             <img
               className="movie__poster"
               src={`https://image.tmdb.org/t/p/original${
-                movieDetail ? movieDetail.poster_path : ""
+                data ? data.poster_path : ""
               }`}
             />
           </div>
         </div>
         <div className="movie__detailRight">
           <div className="movie__detailRightTop">
-            <div className="movie__name">
-              {movieDetail ? movieDetail.original_title : ""}
-            </div>
-            <div className="movie__tagline">
-              {movieDetail ? movieDetail.tagline : ""}
-            </div>
+            <div className="movie__name">{data ? data.original_title : ""}</div>
+            <div className="movie__tagline">{data ? data.tagline : ""}</div>
             <div className="movie__rating">
-              ⭐ {movieDetail ? movieDetail.vote_average : ""}
+              ⭐ {data ? data.vote_average : ""}
               <span className="movie__voteCount">
-                {movieDetail ? "(" + movieDetail.vote_count + ") votes" : ""}
+                {data ? "(" + data.vote_count + ") votes" : ""}
               </span>
             </div>
             <div className="movie__runtime">
-              {movieDetail ? movieDetail.runtime + " mins" : ""}
+              {data ? data.runtime + " mins" : ""}
             </div>
             <div className="movie__releaseDate">
-              {movieDetail ? "Release date: " + movieDetail.release_date : ""}
+              {data ? "Release date: " + data.release_date : ""}
             </div>
             <div className="movie__genres">
-              {movieDetail && movieDetail.genres
-                ? movieDetail.genres.map((genre, index) => (
+              {data && data.genres
+                ? data.genres.map((genre, index) => (
                     <div key={index}>
                       <span className="movie__genre" id={genre.id}>
                         {genre.name}
@@ -87,7 +78,7 @@ const DetailsMovies = () => {
           </div>
           <div className="movie__detailRightBottom">
             <div className="synopsisText">Synopsis</div>
-            <div>{movieDetail ? movieDetail.overview : ""}</div>
+            <div>{data ? data.overview : ""}</div>
           </div>
         </div>
       </div>
@@ -95,9 +86,9 @@ const DetailsMovies = () => {
       <SimilarMovies />
       <div className="movie__links">
         <div className="movie__heading">Useful Links</div>
-        {movieDetail && movieDetail.homepage && (
+        {data && data.homepage && (
           <a
-            href={movieDetail.homepage}
+            href={data.homepage}
             target="_blank"
             style={{ textDecoration: "none" }}
           >
@@ -106,9 +97,9 @@ const DetailsMovies = () => {
             </p>
           </a>
         )}
-        {movieDetail && movieDetail.imdb_id && (
+        {data && data.imdb_id && (
           <a
-            href={"https://www.imdb.com/title/" + movieDetail.imdb_id}
+            href={"https://www.imdb.com/title/" + data.imdb_id}
             target="_blank"
             style={{ textDecoration: "none" }}
           >
@@ -120,9 +111,9 @@ const DetailsMovies = () => {
       </div>
       <div className="movie__heading">Production companies</div>
       <div className="movie__production">
-        {movieDetail &&
-          movieDetail.production_companies &&
-          movieDetail.production_companies.map((company, index) => (
+        {data &&
+          data.production_companies &&
+          data.production_companies.map((company, index) => (
             <div key={index}>
               {company.logo_path && (
                 <span className="productionCompanyImage">
