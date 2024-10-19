@@ -1,28 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../CSS/carousel.css";
-import axios from "axios";
 
 // link of library : https://swiperjs.com/
 // Swiper Modules version 10
+import { useQuery } from "@tanstack/react-query";
+import "swiper/css/bundle";
+import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination, Keyboard } from 'swiper/modules';
-import 'swiper/css/bundle';
+import { fetchCarouselMovies } from "../api/fetchCarouselMovies";
 
-const DataFetcher = () => {
-  const [carouselMovies, setCarouselMovies] = useState([]);
+const Carousel = () => {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["carouselMovies"],
+    queryFn: fetchCarouselMovies,
+  });
 
-  useEffect(() => {
-    axios
-      .get(
-        "https://api.themoviedb.org/3/trending/movie/day?api_key=4e44d9029b1270a757cddc766a1bcb63"
-      )
-      .then((response) => {
-        setCarouselMovies(response.data.results);
-      })
-      .catch((error) => {
-        console.error("Error fetching carousel movies:", error);
-      });
-  }, []);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error fetching popular movies: {error.message}</div>;
 
   return (
     <div className="poster">
@@ -31,41 +25,41 @@ const DataFetcher = () => {
         spaceBetween={30}
         slidesPerView={1}
         loop={true}
-        keyboard={{enabled: true,}}
+        keyboard={{ enabled: true }}
         pagination={{ clickable: true }}
         autoplay={{ delay: 4000 }}
       >
-        {carouselMovies.map((movie, index) => (
-          <SwiperSlide key={index}>
-            <div className="posterImage">
-              <img
-                src={`https://image.tmdb.org/t/p/original${
-                  movie && movie.backdrop_path
-                }`}
-                alt={`Movie Poster ${index}`}
-              />
-              
-            </div>
-            <div className="posterImage__overlay">
-              <div className="posterImage__title">
-                {movie ? movie.original_title || movie.original_name : ""}
+        {data &&
+          data.map((movie, index) => (
+            <SwiperSlide key={index}>
+              <div className="posterImage">
+                <img
+                  src={`https://image.tmdb.org/t/p/original${
+                    movie && movie.backdrop_path
+                  }`}
+                  alt={`Movie Poster ${index}`}
+                />
               </div>
-  
-              <div className="posterImage__runtime">
-                {movie ? movie.release_date || movie.first_air_date : ""}
-                <span className="posterImage__raiting">
-                  ⭐{movie ? movie.vote_average : ""}
-                </span>
-                <div className="posterImage__description">
-                  {movie ? movie.overview : ""}
+              <div className="posterImage__overlay">
+                <div className="posterImage__title">
+                  {movie ? movie.original_title || movie.original_name : ""}
+                </div>
+
+                <div className="posterImage__runtime">
+                  {movie ? movie.release_date || movie.first_air_date : ""}
+                  <span className="posterImage__raiting">
+                    ⭐{movie ? movie.vote_average : ""}
+                  </span>
+                  <div className="posterImage__description">
+                    {movie ? movie.overview : ""}
+                  </div>
                 </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );
 };
 
-export default DataFetcher;
+export default Carousel;
