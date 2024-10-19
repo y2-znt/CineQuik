@@ -1,11 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import "../CSS/movieList.css";
-
 import { fetchPopularMovies } from "../api/fetchPopularMovies";
+
 import Card from "./Card";
 
-const MovieList = () => {
+const PopularMovieList = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["popularMovies"],
     queryFn: fetchPopularMovies,
@@ -24,4 +23,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default PopularMovieList;
