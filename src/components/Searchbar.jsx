@@ -1,36 +1,38 @@
-import React, { useState } from "react";
-import Cards from "./Card";
+import React, { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import "../CSS/searchbar.css";
+import Card from "./Card";
+import { fetchSearchMovies } from "../api/fetchSearchMovies";
 
 const Searchbar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
-  const [movieData, setMovieData] = useState([]);
 
-  const searchMovie = async (e) => {
-    e.preventDefault();
-    try {
-      const url = `https://api.themoviedb.org/3/search/movie?api_key=4e44d9029b1270a757cddc766a1bcb63&query=${query}`;
-      const res = await fetch(url);
-      const data = await res.json();
-      setMovieData(data.results);
-      onSearch(data.results);
-    } catch (error) {
-      console.error("Error fetching movies:", error);
+  const { data, refetch, isLoading, error } = useQuery({
+    queryKey: ["searchedMovies", query],
+    queryFn: () => fetchSearchMovies(query),
+    enabled: false,
+    onSuccess: (data) => onSearch(data),
+  });
+
+  useEffect(() => {
+    if (query.length > 1) {
+      refetch();
     }
-  };
+  }, [query, refetch]);
 
   const changeHandler = (e) => {
     const inputQuery = e.target.value;
     setQuery(inputQuery);
+  };
 
-    if (inputQuery.length > 1) {
-      searchMovie(e);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    refetch();
   };
 
   return (
     <div>
-      <form className="fieldSearching" onSubmit={searchMovie}>
+      <form className="fieldSearching" onSubmit={handleSubmit}>
         <input
           className="input__search"
           type="text"
@@ -43,11 +45,12 @@ const Searchbar = ({ onSearch }) => {
         </button>
       </form>
 
+      {isLoading && <div>Loading...</div>}
+      {error && <div>Error fetching movies: {error.message}</div>}
+
       <div className="movie__list">
         <div className="list__cards">
-          {movieData.map((movie) => (
-            <Cards key={movie.id} movie={movie} />
-          ))}
+          {data && data.map((movie) => <Card key={movie.id} movie={movie} />)}
         </div>
       </div>
     </div>
