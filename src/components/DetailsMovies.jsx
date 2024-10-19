@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { NavLink, useParams } from "react-router-dom";
+import "../CSS/details.css";
 import SimilarMovies from "./SimilarMovies";
 import VideosMovies from "./VideosMovies";
-import "../CSS/details.css";
 
 const DetailsMovies = () => {
   const [movieDetail, setMovieDetail] = useState([]);
   const { id } = useParams();
 
-  console.log({ id });
   useEffect(() => {
     getData();
     window.scrollTo(0, 0);
@@ -77,12 +75,12 @@ const DetailsMovies = () => {
             </div>
             <div className="movie__genres">
               {movieDetail && movieDetail.genres
-                ? movieDetail.genres.map((genre) => (
-                    <>
+                ? movieDetail.genres.map((genre, index) => (
+                    <div key={index}>
                       <span className="movie__genre" id={genre.id}>
                         {genre.name}
                       </span>
-                    </>
+                    </div>
                   ))
                 : ""}
             </div>
@@ -124,8 +122,8 @@ const DetailsMovies = () => {
       <div className="movie__production">
         {movieDetail &&
           movieDetail.production_companies &&
-          movieDetail.production_companies.map((company) => (
-            <>
+          movieDetail.production_companies.map((company, index) => (
+            <div key={index}>
               {company.logo_path && (
                 <span className="productionCompanyImage">
                   <img
@@ -137,7 +135,7 @@ const DetailsMovies = () => {
                   <span>{company.name}</span>
                 </span>
               )}
-            </>
+            </div>
           ))}
       </div>
     </div>
