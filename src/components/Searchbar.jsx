@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import React, { useEffect, useState } from "react";
+import { fetchSearchMovies } from "../api/fetchSearchMovies";
 import "../CSS/searchbar.css";
 import Card from "./Card";
-import { fetchSearchMovies } from "../api/fetchSearchMovies";
-
 const Searchbar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
-  const { data, refetch, isLoading, error } = useQuery({
+  const { data, refetch, error } = useQuery({
     queryKey: ["searchedMovies", query],
     queryFn: () => fetchSearchMovies(query),
     enabled: false,
@@ -45,7 +44,6 @@ const Searchbar = ({ onSearch }) => {
         </button>
       </form>
 
-      {isLoading && <div>Loading...</div>}
       {error && <div>Error fetching movies: {error.message}</div>}
 
       <div className="movie__list">

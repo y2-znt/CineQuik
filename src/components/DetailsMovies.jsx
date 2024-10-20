@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import { useParams } from "react-router-dom";
 import { fetchDetailsMovies } from "../api/fetchDetailsMovies";
 import "../CSS/details.css";
@@ -12,11 +11,6 @@ const DetailsMovies = () => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["detailsMovies", id],
     queryFn: () => fetchDetailsMovies(id),
-    onSuccess: (data) => {
-      if (!data) {
-        throw new Error("Query data cannot be undefined");
-      }
-    },
   });
 
   if (isLoading) return <div>Loading...</div>;

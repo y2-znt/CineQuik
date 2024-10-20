@@ -15,7 +15,6 @@ const Carousel = () => {
     queryFn: fetchCarouselMovies,
   });
 
-  if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching popular movies: {error.message}</div>;
 
   return (

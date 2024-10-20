@@ -5,18 +5,16 @@ import { fetchPopularMovies } from "../api/fetchPopularMovies";
 import Card from "./Card";
 
 const PopularMovieList = () => {
-  const { data, isLoading, error } = useQuery({
+  const { data, error } = useQuery({
     queryKey: ["popularMovies"],
     queryFn: fetchPopularMovies,
   });
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error fetching popular movies: {error.message}</div>;
 
   return (
     <div className="movie__list">
       <h2 className="list__title">Popular Movies</h2>
       <div className="list__cards">
+        {error && <div>Error fetching popular movies: {error.message}</div>}
         {data && data.map((movie) => <Card key={movie.id} movie={movie} />)}
       </div>
     </div>

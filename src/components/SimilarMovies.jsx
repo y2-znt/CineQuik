@@ -13,7 +13,6 @@ const SimilarMovies = () => {
     queryFn: () => fetchSimilarMovies(id),
   });
 
-  if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching similar movies: {error.message}</div>;
 
   return (
@@ -21,9 +20,10 @@ const SimilarMovies = () => {
       <div className="movie__list">
         <h2 className="list__title">Similar Movies</h2>
         <div className="list__cards">
-          {data.slice(0, 10).map((movie) => (
-            <Card key={movie.id} movie={movie} />
-          ))}
+          {data &&
+            data
+              .slice(0, 10)
+              .map((movie) => <Card key={movie.id} movie={movie} />)}
         </div>
       </div>
     </div>
