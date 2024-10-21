@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchDetailsMovies } from "../api/fetchDetailsMovies";
 import "../CSS/details.css";
 import SimilarMovies from "./SimilarMovies";
@@ -7,11 +7,16 @@ import VideosMovies from "./VideosMovies";
 
 const DetailsMovies = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["detailsMovies", id],
     queryFn: () => fetchDetailsMovies(id),
   });
+
+  const goBack = () => {
+    navigate(-1);
+  };
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error fetching movie details: {error.message}</div>;
@@ -19,7 +24,7 @@ const DetailsMovies = () => {
   return (
     <div className="movie">
       <div className="movie__backBtn">
-        <span onClick={() => history.back()}>
+        <span onClick={goBack}>
           <i className="fas fa-arrow-left"></i>
         </span>
       </div>
