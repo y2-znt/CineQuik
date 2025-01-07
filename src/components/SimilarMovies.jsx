@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { fetchSimilarMovies } from "../api/fetchSimilarMovies";
+import { fetchSimilarMovies } from "../api/moviesApi";
 import "../CSS/details.css";
 import Card from "./Card";
 

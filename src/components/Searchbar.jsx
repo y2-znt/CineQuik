@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
-import { fetchSearchMovies } from "../api/fetchSearchMovies";
+import { fetchSearchMovies } from "../api/moviesApi";
 import "../CSS/searchbar.css";
 import Card from "./Card";
 const Searchbar = ({ onSearch }) => {

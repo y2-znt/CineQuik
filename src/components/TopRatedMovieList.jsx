@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchTopRatedMovies } from "../api/fetchTopRatedMovies";
 import "../CSS/movieList.css";
+import { fetchTopRatedMovies } from "../api/moviesApi";
 import Card from "./Card";
 
 const TopRatedMovieList = () => {

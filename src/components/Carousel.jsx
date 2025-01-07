@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import "swiper/css/bundle";
 import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { fetchCarouselMovies } from "../api/fetchCarouselMovies";
+import { fetchCarouselMovies } from "../api/moviesApi";
 
 const Carousel = () => {
   const { data, isLoading, error } = useQuery({

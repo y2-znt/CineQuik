@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchDetailsMovies } from "../api/fetchDetailsMovies";
+import { fetchDetailsMovies } from "../api/moviesApi";
 import "../CSS/details.css";
 import SimilarMovies from "./SimilarMovies";
 import VideosMovies from "./VideosMovies";

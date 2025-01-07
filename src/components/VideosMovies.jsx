@@ -1,11 +1,10 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { useParams } from "react-router-dom";
+import { fetchVideosMovies } from "../api/moviesApi";
 import "../CSS/details.css";
-
 // link of library : https://www.npmjs.com/package/react-youtube
-import { useQuery } from "@tanstack/react-query";
 import YouTube from "react-youtube";
-import { fetchVideosMovies } from "../api/fetchVideosMovies";
 
 const VideosMovies = () => {
   const { id } = useParams();
