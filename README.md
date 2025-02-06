@@ -13,9 +13,9 @@ Check out the project online 👉 [here](https://cinequik.vercel.app/)
 ## Screenshots 📸
 
 ### Home page :
-![Home Page](https://github.com/Yoni-Deserbaix/CineQuik/blob/main/Screenshots/Home-page.png)
+![Home Page](https://github.com/y2-znt/CineQuik/blob/main/Screenshots/Home-page.png)
 ### Details Movie page :
-![Details Page](https://github.com/Yoni-Deserbaix/CineQuik/blob/main/Screenshots/Details-page.png)
+![Details Page](https://github.com/y2-znt/CineQuik/blob/main/Screenshots/Details-page.png)
 
 ## Features
 
@@ -46,7 +46,7 @@ Check out the project online 👉 [here](https://cinequik.vercel.app/)
 1. Clone the GitHub repository to your local machine <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="15" alt="git logo" />:
 
     ```bash
-    git clone https://github.com/Yoni-Deserbaix/CineQuik.git
+    git clone https://github.com/y2-znt/CineQuik.git
     ```
 
 2. Navigate to the project directory:
@@ -94,9 +94,9 @@ To fix a bug or enhance an existing module, follow these steps:
 ### 📩 Bug / Feature Request
 
 If you find a bug (failure of a module to execute its intended function), kindly open an issue
-[here](https://github.com/Yoni-Deserbaix/CineQuik/issues/new) by including the issue with a
+[here](https://github.com/y2-znt/CineQuik/issues/new) by including the issue with a
 title and clear description.
 
 If you'd like to request a new function, feel free to do so by opening an issue
-[here](https://github.com/Yoni-Deserbaix/CineQuik/issues/new). Please include sample queries
+[here](https://github.com/y2-znt/CineQuik/issues/new). Please include sample queries
 and their corresponding results.
