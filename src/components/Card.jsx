@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../CSS/card.css";
-import Skeleton from "./Skeleton";
+import Skeleton from "./skeletons/SkeletonCard";
 
 const Cards = ({ movie }) => {
   const [isLoaded, setIsLoaded] = useState(false);

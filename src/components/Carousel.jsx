@@ -8,6 +8,7 @@ import "swiper/css/bundle";
 import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { fetchCarouselMovies } from "../api/moviesApi";
+import { ErrorCarousel, SkeletonCarousel } from "./skeletons/SkeletonCarousel";
 
 const Carousel = () => {
   const { data, isLoading, error } = useQuery({
@@ -15,7 +16,8 @@ const Carousel = () => {
     queryFn: fetchCarouselMovies,
   });
 
-  if (error) return <div>Error fetching popular movies: {error.message}</div>;
+  if (isLoading) return <SkeletonCarousel />;
+  if (error) return <ErrorCarousel message={error.message} />;
 
   return (
     <div className="poster">
