@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchSimilarMovies } from "../api/moviesApi";
 import "../CSS/details.css";
 import Card from "./Card";
+import { ErrorMovieList, SkeletonMovieList } from "./skeletons/SkeletonMovieList";
 
 const SimilarMovies = () => {
   const { id } = useParams();
@@ -12,8 +13,9 @@ const SimilarMovies = () => {
     queryKey: ["similarMovies", id],
     queryFn: () => fetchSimilarMovies(id),
   });
-
-  if (error) return <div>Error fetching similar movies: {error.message}</div>;
+  
+  if (isLoading) return <SkeletonMovieList title="Similar Movies" />;
+  if (error) return <ErrorMovieList message={error.message} title="Similar Movies" />;
 
   return (
     <div>

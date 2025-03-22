@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import "../CSS/movieList.css";
 import { fetchTopRatedMovies } from "../api/moviesApi";
 import Card from "./Card";
-import Skeleton from "./Skeleton";
+import { ErrorMovieList, SkeletonMovieList } from "./skeletons/SkeletonMovieList";
 
 const TopRatedMovieList = () => {
   const { data, error, isLoading } = useQuery({
@@ -10,19 +10,14 @@ const TopRatedMovieList = () => {
     queryFn: fetchTopRatedMovies,
   });
 
+  if (isLoading) return <SkeletonMovieList title="Top Rated" />;
+  if (error) return <ErrorMovieList message={error.message} title="Top Rated" />;
+
   return (
     <div className="media__list">
-      <h2 className="list__title">Top rated</h2>
+      <h2 className="list__title">Top Rated</h2>
       <div className="list__cards">
-        {error && <div>Error fetching top rated movies: {error.message}</div>}
-        {isLoading && 
-          Array(10).fill(0).map((_, index) => (
-            <div key={`skeleton-${index}`}>
-              <Skeleton />
-            </div>
-          ))
-        }
-        {!isLoading && data && data.map((movie) => (
+        {data && data.map((movie) => (
           <Card key={movie.id} movie={movie} />
         ))}
       </div>
