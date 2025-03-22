@@ -8,6 +8,7 @@ import "swiper/css/bundle";
 import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { fetchCarouselMovies } from "../api/moviesApi";
+import FadeIn from "./animations/FadeIn";
 import { ErrorCarousel, SkeletonCarousel } from "./skeletons/SkeletonCarousel";
 
 const Carousel = () => {
@@ -33,29 +34,32 @@ const Carousel = () => {
         {data &&
           data.map((movie, index) => (
             <SwiperSlide key={index}>
-              <div className="posterImage">
-                <img
-                  src={`https://image.tmdb.org/t/p/original${
-                    movie && movie.backdrop_path
-                  }`}
-                  alt={`Movie Poster ${index}`}
-                />
-              </div>
-              <div className="posterImage__overlay">
-                <div className="posterImage__title">
-                  {movie ? movie.original_title || movie.original_name : ""}
+              <FadeIn>
+                <div className="posterImage">
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${
+                      movie && movie.backdrop_path
+                    }`}
+                    alt={`Movie Poster ${index}`}
+                  />
                 </div>
-
-                <div className="posterImage__runtime">
-                  {movie ? movie.release_date || movie.first_air_date : ""}
-                  <span className="posterImage__raiting">
-                    ⭐{movie ? movie.vote_average : ""}
-                  </span>
-                  <div className="posterImage__description">
-                    {movie ? movie.overview : ""}
+                <FadeIn delay={0.8}>
+                  <div className="posterImage__overlay">
+                    <div className="posterImage__title">
+                      {movie ? movie.original_title || movie.original_name : ""}
+                    </div>
+                    <div className="posterImage__runtime">
+                      {movie ? movie.release_date || movie.first_air_date : ""}
+                      <span className="posterImage__raiting">
+                        ⭐{movie ? movie.vote_average : ""}
+                      </span>
+                    </div>
+                    <div className="posterImage__description">
+                      {movie ? movie.overview : ""}
+                    </div>
                   </div>
-                </div>
-              </div>
+                </FadeIn>
+              </FadeIn>
             </SwiperSlide>
           ))}
       </Swiper>
