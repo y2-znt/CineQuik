@@ -3,7 +3,6 @@ import axios from "axios";
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
-console.log(`API_KEY: ${API_KEY}`);
 export const fetchCarouselMovies = async () => {
   return await axios
     .get(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`)
