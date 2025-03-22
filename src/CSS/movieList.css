@@ -5,16 +5,13 @@
 .list__title {
   font-size: 1.5rem;
   font-weight: 700;
-  margin:  5rem 7rem 2rem;
+  margin: 5rem 7rem 2rem;
 }
 
 .list__cards {
   display: flex;
-  flex-wrap: wrap ;
-  justify-content: center;  
-  opacity: 0;
-  animation: flyinMedia 1s ease forwards 1s;
-  visibility: hidden;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .list__cards__skeleton {
@@ -95,9 +92,15 @@
 }
 
 @keyframes pulse {
-  0% { opacity: 0.6; }
-  50% { opacity: 0.8; }
-  100% { opacity: 0.6; }
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.6;
+  }
 }
 
 /* Responsive styles */
@@ -105,23 +108,23 @@
   .skeleton-card {
     width: 150px;
   }
-  
+
   .skeleton-poster {
     height: 225px;
   }
-  
+
   .skeleton-title {
     height: 16px;
   }
-  
+
   .skeleton-rating {
     height: 14px;
   }
-  
+
   .movie-list-error h3 {
     font-size: 1.2rem;
   }
-  
+
   .movie-list-error p {
     font-size: 0.9rem;
   }
@@ -131,18 +134,16 @@
   .skeleton-card {
     width: 120px;
   }
-  
+
   .skeleton-poster {
     height: 180px;
   }
-  
+
   .skeleton-title {
     height: 14px;
   }
-  
+
   .skeleton-rating {
     height: 12px;
   }
 }
-
-  
