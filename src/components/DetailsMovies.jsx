@@ -3,7 +3,6 @@ import { motion } from "motion/react";
 import { useNavigate, useParams } from "react-router-dom";
 import { fetchDetailsMovies } from "../api/moviesApi";
 import "../CSS/details.css";
-import FadeOnScroll from "./animations/FadeOnScroll";
 import SimilarMovies from "./moviesList/SimilarMovies";
 import SkeletonDetailsMovies, {
   ErrorDetailsMovies,
@@ -12,112 +11,132 @@ import VideosMovies from "./VideosMovies";
 
 const DetailsMovies = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["detailsMovies", id],
     queryFn: () => fetchDetailsMovies(id),
   });
 
-  const goBack = () => {
-    navigate(-1);
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 100);
-  };
-
   if (isLoading) return <SkeletonDetailsMovies />;
   if (error) return <ErrorDetailsMovies message={error.message} />;
 
   return (
     <div className="movie">
-      <div className="movie__backBtn">
-        <span onClick={goBack}>
-          <i className="fas fa-arrow-left"></i>
-        </span>
-      </div>
-
       <div className="movie__intro">
-        <FadeOnScroll>
-          <img
-            className="movie__backdrop"
-            src={`https://image.tmdb.org/t/p/original${
-              data ? data.backdrop_path : ""
-            }`}
-          />
-        </FadeOnScroll>
+        <motion.img
+          className="movie__backdrop"
+          src={`https://image.tmdb.org/t/p/original${
+            data ? data.backdrop_path : ""
+          }`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        />
       </div>
 
       <div className="movie__detail">
         <div className="movie__detailLeft">
-          <FadeOnScroll delay={0.4}>
-            <div className="movie__posterBox">
-              <motion.img
-                className="movie__poster"
-                src={`https://image.tmdb.org/t/p/original${
-                  data ? data.poster_path : ""
-                }`}
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              />
-            </div>
-          </FadeOnScroll>
+          <motion.div
+            className="movie__posterBox"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <motion.img
+              className="movie__poster"
+              src={`https://image.tmdb.org/t/p/original${
+                data ? data.poster_path : ""
+              }`}
+              whileHover={{ scale: 1.03 }}
+              transition={{ duration: 0.1 }}
+            />
+          </motion.div>
         </div>
 
         <div className="movie__detailRight">
-          <FadeOnScroll delay={0.6}>
-            <div className="movie__detailRightTop">
-              <div className="movie__name">
-                {data ? data.original_title : ""}
-              </div>
-              <div className="movie__tagline">{data ? data.tagline : ""}</div>
-              <div className="movie__rating">
-                ⭐ {data ? data.vote_average : ""}
-                <span className="movie__voteCount">
-                  {data ? "(" + data.vote_count + ") votes" : ""}
-                </span>
-              </div>
-              <div className="movie__runtime">
-                {data ? data.runtime + " mins" : ""}
-              </div>
-              <div className="movie__releaseDate">
-                {data ? "Release date: " + data.release_date : ""}
-              </div>
-              <div className="movie__genres">
-                {data && data.genres
-                  ? data.genres.map((genre, index) => (
-                      <div key={index}>
-                        <span className="movie__genre" id={genre.id}>
-                          {genre.name}
-                        </span>
-                      </div>
-                    ))
-                  : ""}
-              </div>
+          <motion.div
+            className="movie__detailRightTop"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="movie__name">{data ? data.title : ""}</div>
+            {data.tagline && (
+              <div className="movie__tagline">{data.tagline}</div>
+            )}
+            <div className="movie__rating">
+              <i className="fas fa-star" style={{ color: "#f5c518" }}></i>{" "}
+              {data ? data.vote_average.toFixed(1) : ""}
+              <span className="movie__voteCount">
+                {data ? "(" + data.vote_count.toLocaleString() + " votes)" : ""}
+              </span>
             </div>
-          </FadeOnScroll>
+            <div className="movie__runtime">
+              <i className="fas fa-clock" style={{ marginRight: "8px" }}></i>
+              {data && data.runtime
+                ? `${Math.floor(data.runtime / 60)}h ${data.runtime % 60}m`
+                : ""}
+            </div>
+            <div className="movie__releaseDate">
+              <i
+                className="fas fa-calendar-alt"
+                style={{ marginRight: "8px" }}
+              ></i>
+              {data ? data.release_date : ""}
+            </div>
+            <div className="movie__genres">
+              {data && data.genres
+                ? data.genres.map((genre, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <span className="movie__genre" id={genre.id}>
+                        {genre.name}
+                      </span>
+                    </motion.div>
+                  ))
+                : ""}
+            </div>
+          </motion.div>
 
-          <div className="movie__detailRightBottom">
-            <FadeOnScroll delay={0.8}>
-              <div className="synopsisText">Synopsis</div>
-              <div>{data ? data.overview : ""}</div>
-            </FadeOnScroll>
-          </div>
+          <motion.div
+            className="movie__detailRightBottom"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <div className="synopsisText">Synopsis</div>
+            <div className="movie__overview">{data ? data.overview : ""}</div>
+          </motion.div>
         </div>
       </div>
 
       <VideosMovies />
       <SimilarMovies />
 
-      <FadeOnScroll>
-        <div className="movie__links">
-          <div className="movie__heading">Useful Links</div>
+      <motion.div
+        className="movie__links"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <div className="movie__heading">Useful Links</div>
+        <div
+          style={{
+            display: "flex",
+            gap: "var(--spacing-md)",
+            flexWrap: "wrap",
+          }}
+        >
           {data && data.homepage && (
             <motion.a
               href={data.homepage}
               target="_blank"
               style={{ textDecoration: "none" }}
               whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <p className="movie__homeButton movie__Button">
                 Homepage<i className="newTab fas fa-external-link-alt"></i>
@@ -130,6 +149,7 @@ const DetailsMovies = () => {
               target="_blank"
               style={{ textDecoration: "none" }}
               whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               <p className="movie__imdbButton movie__Button">
                 IMDb<i className="newTab fas fa-external-link-alt"></i>
@@ -137,35 +157,57 @@ const DetailsMovies = () => {
             </motion.a>
           )}
         </div>
-      </FadeOnScroll>
+      </motion.div>
 
-      <FadeOnScroll>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        style={{ width: "85%" }}
+      >
         <div className="movie__heading">Production companies</div>
         <div className="movie__production">
           {data &&
             data.production_companies &&
-            data.production_companies.map((company, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.3 }}
-              >
-                {company.logo_path && (
-                  <span className="productionCompanyImage">
-                    <img
-                      className="movie__productionComapany"
-                      src={
-                        "https://image.tmdb.org/t/p/original" +
-                        company.logo_path
-                      }
-                    />
-                    <span>{company.name}</span>
-                  </span>
-                )}
-              </motion.div>
-            ))}
+            data.production_companies.map(
+              (company, index) =>
+                company.logo_path && (
+                  <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <span className="productionCompanyImage">
+                      <motion.img
+                        className="movie__productionComapany"
+                        src={
+                          "https://image.tmdb.org/t/p/original" +
+                          company.logo_path
+                        }
+                        alt={company.name}
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{
+                          duration: 0.6,
+                          delay: 0.3 + index * 0.1,
+                        }}
+                      />
+                      <motion.span
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                          duration: 0.6,
+                          delay: 0.5 + index * 0.1,
+                        }}
+                      >
+                        {company.name}
+                      </motion.span>
+                    </span>
+                  </motion.div>
+                )
+            )}
         </div>
-      </FadeOnScroll>
+      </motion.div>
     </div>
   );
 };
