@@ -5,7 +5,13 @@ import "../CSS/carousel.css";
 // Swiper Modules version 10
 import { useQuery } from "@tanstack/react-query";
 import "swiper/css/bundle";
-import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
+import {
+  Autoplay,
+  EffectFade,
+  Keyboard,
+  Navigation,
+  Pagination,
+} from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { fetchCarouselMovies } from "../api/moviesApi";
 import FadeIn from "./animations/FadeIn";
@@ -23,13 +29,20 @@ const Carousel = () => {
   return (
     <div className="poster">
       <Swiper
-        modules={[Autoplay, Navigation, Pagination, Keyboard]}
-        spaceBetween={30}
+        modules={[Autoplay, Navigation, Pagination, Keyboard, EffectFade]}
+        spaceBetween={0}
         slidesPerView={1}
         loop={true}
         keyboard={{ enabled: true }}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 4000 }}
+        pagination={{
+          clickable: true,
+          dynamicBullets: true,
+        }}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
+        speed={800}
       >
         {data &&
           data.map((movie, index) => (
@@ -40,7 +53,10 @@ const Carousel = () => {
                     src={`https://image.tmdb.org/t/p/original${
                       movie && movie.backdrop_path
                     }`}
-                    alt={`Movie Poster ${index}`}
+                    alt={`${
+                      movie?.original_title || movie?.original_name || "Movie"
+                    } Poster`}
+                    loading="lazy"
                   />
                 </div>
                 <FadeIn delay={0.8}>
@@ -51,7 +67,7 @@ const Carousel = () => {
                     <div className="posterImage__runtime">
                       {movie ? movie.release_date || movie.first_air_date : ""}
                       <span className="posterImage__raiting">
-                        ⭐{movie ? movie.vote_average : ""}
+                        ⭐{movie ? movie.vote_average.toFixed(1) : ""}
                       </span>
                     </div>
                     <div className="posterImage__description">
