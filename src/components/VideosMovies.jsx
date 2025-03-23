@@ -30,8 +30,9 @@ const VideosMovies = () => {
     },
   };
 
-  // If no videos found
-  if (!data || data.length === 0) {
+  const trailerVideos = data?.filter((video) => video.type === "Trailer") || [];
+
+  if (!trailerVideos || trailerVideos.length === 0) {
     return null;
   }
 
@@ -51,24 +52,23 @@ const VideosMovies = () => {
         Videos
       </motion.div>
       <div className="movie__videos-container">
-        {data &&
-          data.slice(0, 4).map((video, index) => (
-            <motion.div
-              key={video.id}
-              className="video-wrapper"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-            >
-              <YouTube videoId={video.key} opts={opts} />
-              {video.name && (
-                <motion.div className="video-title">
-                  <i className="fas fa-play-circle video-icon"></i>
-                  {video.name}
-                </motion.div>
-              )}
-            </motion.div>
-          ))}
+        {trailerVideos.map((video, index) => (
+          <motion.div
+            key={video.id}
+            className="video-wrapper"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+          >
+            <YouTube videoId={video.key} opts={opts} />
+            {video.name && (
+              <motion.div className="video-title">
+                <i className="fas fa-play-circle video-icon"></i>
+                {video.name}
+              </motion.div>
+            )}
+          </motion.div>
+        ))}
       </div>
     </motion.div>
   );

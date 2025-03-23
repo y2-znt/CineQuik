@@ -59,6 +59,6 @@ export const fetchTopRatedMovies = async () => {
 
 export const fetchVideosMovies = async (id) => {
   return await axios
-    .get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&append_to_response=videos`)
-    .then((res) => res.data.videos.results);
+    .get(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`)
+    .then((res) => res.data.results);
 };
