@@ -13,6 +13,7 @@ const Home = () => {
       <Carousel />
       <Searchbar />
       <PopularMovieList />
+      <div style={{ marginTop: "28px" }}></div>
       <TopRatedMovieList />
       <Footer />
     </div>
