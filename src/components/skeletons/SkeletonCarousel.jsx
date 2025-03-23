@@ -57,22 +57,44 @@ export const SkeletonCarousel = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        className="skeleton-overlay"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <motion.div className="skeleton-title" animate={pulseAnimation}>
-          <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-        </motion.div>
-        <motion.div className="skeleton-runtime" animate={pulseAnimation}>
-          <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-        </motion.div>
-        <motion.div className="skeleton-description" animate={pulseAnimation}>
-          <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-        </motion.div>
-      </motion.div>
+      <div className="skeleton-overlay">
+        <div className="skeleton">
+          <div className="skeleton-header">
+            <div className="skeleton-title-container">
+              <div className="skeleton-title" animate={pulseAnimation}>
+                <div style={shimmerStyle} animate={shimmerAnimation} />
+              </div>
+            </div>
+          </div>
+
+          <div className="skeleton-meta">
+            <div className="skeleton-date" animate={pulseAnimation}>
+              <div style={shimmerStyle} animate={shimmerAnimation} />
+            </div>
+            <div className="skeleton-rating" animate={pulseAnimation}>
+              <motion.div style={shimmerStyle} animate={shimmerAnimation} />
+            </div>
+          </div>
+
+          <div className="skeleton-genres">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="skeleton-genre" animate={pulseAnimation}>
+                <div style={shimmerStyle} animate={shimmerAnimation} />
+              </div>
+            ))}
+          </div>
+
+          <div className="skeleton-description" animate={pulseAnimation}>
+            <div style={shimmerStyle} animate={shimmerAnimation} />
+          </div>
+
+          <div className="skeleton-actions">
+            <div className="skeleton-button" animate={pulseAnimation}>
+              <div style={shimmerStyle} animate={shimmerAnimation} />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

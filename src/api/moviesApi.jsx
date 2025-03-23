@@ -4,9 +4,26 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
 export const fetchCarouselMovies = async () => {
-  return await axios
-    .get(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`)
-    .then((res) => res.data.results);
+  const genresResponse = await axios.get(
+    `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`
+  );
+  const genresList = genresResponse.data.genres;
+
+  const moviesResponse = await axios.get(
+    `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`
+  );
+  const movies = moviesResponse.data.results;
+
+  return movies.map((movie) => ({
+    ...movie,
+    genres: movie.genre_ids.map(
+      (genreId) =>
+        genresList.find((genre) => genre.id === genreId) || {
+          id: genreId,
+          name: "Uncategorized",
+        }
+    ),
+  }));
 };
 
 export const fetchDetailsMovies = async (id) => {
