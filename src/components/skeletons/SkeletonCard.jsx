@@ -1,7 +1,7 @@
 import React from "react";
 import "../../CSS/skeleton.css";
 
-export default function   SkeletonCard() {
+export default function SkeletonCard() {
   return (
     <div className="skeleton-card">
       <div className="skeleton-img"></div>

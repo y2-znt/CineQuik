@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import '../CSS/header.css';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import "../CSS/header.css";
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
@@ -15,23 +15,28 @@ const Header = () => {
 
   return (
     <div className="header">
-      <div className='headerRight'>
-        <input type="checkbox" id="check" checked={showNav} onChange={toggleNav} />
-        <label htmlFor="check" className='checkbtn'>
+      <div className="headerRight">
+        <input
+          type="checkbox"
+          id="check"
+          checked={showNav}
+          onChange={toggleNav}
+        />
+        <label htmlFor="check" className="checkbtn">
           <i className="fas fa-bars"></i>
         </label>
         <NavLink to="/">
-            <li className='logo'>
-              <img src="https://static.vecteezy.com/system/resources/previews/001/186/943/original/green-play-button-png.png" alt='logo' />
+          <li className="logo">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/001/186/943/original/green-play-button-png.png"
+              alt="logo"
+            />
             CineQuick
-            </li>
-          </NavLink>
-        <ul className={showNav ? 'show' : ''}>
-
+          </li>
+        </NavLink>
+        <ul className={showNav ? "show" : ""}>
           <NavLink to="/" onClick={hideNav}>
-            <li>
-              Home
-            </li>
+            <li>Home</li>
           </NavLink>
           <NavLink to="/popular-movies" onClick={hideNav}>
             <li>Popular</li>

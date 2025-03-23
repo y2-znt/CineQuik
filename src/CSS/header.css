@@ -1,4 +1,3 @@
-
 .logo {
   float: inline-start;
   display: block;
@@ -24,22 +23,20 @@
   font-size: 1.5rem;
 }
 
-  
 .headerRight ul a {
   text-decoration: none;
   padding: 10px 20px;
 }
-  
+
 .headerRight ul a li {
-  color: whitesmoke; 
+  color: whitesmoke;
   transition: 0.2s;
   cursor: pointer;
 }
-  
-.headerRight ul a li:hover {
-  color: #fbee61; 
-}
 
+.headerRight ul a li:hover {
+  color: #fbee61;
+}
 
 .checkbtn {
   display: none;
@@ -62,7 +59,6 @@
   display: none;
 }
 
-
 @keyframes anim {
   to {
     width: 85%;
@@ -70,8 +66,7 @@
 }
 
 /* Responsive mobile */
-@media screen and (max-width:720px) {
-
+@media screen and (max-width: 720px) {
   .logo {
     position: absolute;
     margin: 5px 20px;
@@ -90,7 +85,7 @@
   .checkbtn .fas {
     font-size: 25px;
     padding: 2px 7px;
-    font-weight:400;
+    font-weight: 400;
   }
 
   .headerRight ul {
@@ -117,7 +112,7 @@
   .headerRight #check:checked ~ ul {
     right: 0;
   }
-  
+
   .overlay {
     display: none;
     position: fixed;
@@ -133,4 +128,3 @@
     display: block;
   }
 }
-  

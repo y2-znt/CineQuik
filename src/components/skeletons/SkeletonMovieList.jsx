@@ -4,12 +4,14 @@ import SkeletonCard from "./SkeletonCard";
 
 export const SkeletonMovieList = ({ title = "Loading Movies" }) => {
   return (
-    <div className="movie__list"> 
+    <div className="movie__list">
       <h2 className="list__title">{title}</h2>
       <div className="list__cards__skeleton">
-        {Array(10).fill(0).map((_, index) => (
-          <SkeletonCard key={`skeleton-${index}`} />
-        ))}
+        {Array(10)
+          .fill(0)
+          .map((_, index) => (
+            <SkeletonCard key={`skeleton-${index}`} />
+          ))}
       </div>
     </div>
   );
