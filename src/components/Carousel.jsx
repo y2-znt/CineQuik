@@ -54,15 +54,15 @@ const Carousel = () => {
                       movie && movie.backdrop_path
                     }`}
                     alt={`${
-                      movie?.original_title || movie?.original_name || "Movie"
+                      movie?.title || movie?.original_name || "Movie"
                     } Poster`}
                     loading="lazy"
                   />
                 </div>
-                <FadeIn delay={0.8}>
+                <FadeIn delay={0.2}>
                   <div className="posterImage__overlay">
                     <div className="posterImage__title">
-                      {movie ? movie.original_title || movie.original_name : ""}
+                      {movie ? movie.title || movie.original_name : ""}
                     </div>
                     <div className="posterImage__runtime">
                       {movie ? movie.release_date || movie.first_air_date : ""}

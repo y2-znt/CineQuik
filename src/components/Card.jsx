@@ -26,7 +26,7 @@ const Cards = ({ movie }) => {
             />
             {isLoaded && (
               <div className="cards__overlay">
-                <div className="card__title">{movie?.original_title || ""}</div>
+                <div className="card__title">{movie?.title || ""}</div>
                 <div className="card__runtime">
                   {movie?.release_date || ""}
                   <span className="card__rating">
