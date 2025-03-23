@@ -77,7 +77,6 @@
   max-width: 600px;
 }
 
-/* View all button */
 .list__view-all {
   display: inline-flex;
   align-items: center;
@@ -112,7 +111,6 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Animation for cards */
 @keyframes fadeInUp {
   from {
     opacity: 0;

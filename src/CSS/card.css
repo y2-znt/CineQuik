@@ -104,7 +104,6 @@
   line-height: 1.4;
 }
 
-/* Badge for new or popular items */
 .card__badge {
   position: absolute;
   top: var(--spacing-sm);
@@ -119,7 +118,6 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive adjustments */
 @media screen and (max-width: 992px) {
   .cards {
     height: 300px;

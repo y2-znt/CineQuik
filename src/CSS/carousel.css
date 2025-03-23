@@ -422,11 +422,35 @@
 
 .posterImage__detailButton:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-3px);
+  transform: scale(1.1);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .posterImage__detailButton i {
+  font-size: var(--font-size-sm);
+  margin-right: var(--spacing-sm);
+}
+
+.posterImage__secondaryButton {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: var(--spacing-xs) var(--spacing-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-lg);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  transition: var(--transition-fast);
+}
+
+.posterImage__secondaryButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.posterImage__secondaryButton i {
   font-size: var(--font-size-sm);
   margin-right: var(--spacing-sm);
 }
@@ -448,12 +472,14 @@
     padding: var(--spacing-xs) var(--spacing-sm);
   }
 
-  .posterImage__detailButton {
+  .posterImage__detailButton,
+  .posterImage__secondaryButton {
     padding: var(--spacing-xs) var(--spacing-lg);
     font-size: var(--font-size-sm);
   }
 
-  .posterImage__detailButton i {
+  .posterImage__detailButton i,
+  .posterImage__secondaryButton i {
     font-size: var(--font-size-md);
   }
 }
@@ -470,10 +496,16 @@
 
   .posterImage__buttons {
     margin-top: var(--spacing-md);
+    flex-wrap: wrap;
   }
 
-  .posterImage__detailButton {
+  .posterImage__detailButton,
+  .posterImage__secondaryButton {
     padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    width: 100%;
+    justify-content: center;
+    margin-bottom: var(--spacing-xs);
   }
 }
 

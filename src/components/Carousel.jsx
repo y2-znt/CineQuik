@@ -129,8 +129,15 @@ const Carousel = () => {
                       to={`/details/${movie?.id}`}
                       className="posterImage__detailButton"
                     >
-                      <i className="fas fa-info-circle"></i>
+                      <i className="fas fa-film"></i>
                       <span>See More</span>
+                    </Link>
+                    <Link
+                      to="/top-rated-movies"
+                      className="posterImage__secondaryButton"
+                    >
+                      <i className="fas fa-award"></i>
+                      <span>Top Rated</span>
                     </Link>
                   </motion.div>
                 </div>

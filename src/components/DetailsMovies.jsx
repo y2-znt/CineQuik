@@ -114,6 +114,7 @@ const DetailsMovies = () => {
       </div>
 
       <VideosMovies />
+      <div style={{ marginTop: "100px" }}></div>
       <SimilarMovies />
 
       <motion.div
