@@ -1,3 +1,7 @@
+.poster {
+  margin-top: 80px;
+}
+
 .posterImage {
   height: 600px;
   width: 100%;
@@ -185,9 +189,13 @@
 
 /* Responsive mobile */
 @media screen and (max-width: 720px) {
+  .poster {
+    margin-top: 56px;
+  }
+
   .posterImage {
     height: 300px;
-    margin-top: 45px;
+    margin-top: 0;
   }
 
   .posterImage > img {
@@ -229,7 +237,7 @@
   /* Skeleton responsive mobile */
   .skeleton-posterImage {
     height: 300px;
-    margin-top: 45px;
+    margin-top: 0;
   }
 
   .skeleton-overlay {
@@ -259,9 +267,13 @@
 
 /* Responsive small mobile */
 @media screen and (max-width: 480px) {
+  .poster {
+    margin-top: 56px;
+  }
+
   .posterImage {
     height: 250px;
-    margin-top: 30px;
+    margin-top: 0;
   }
 
   .posterImage__overlay {
@@ -278,12 +290,12 @@
 
   .skeleton-posterImage {
     height: 250px;
-    margin-top: 30px;
+    margin-top: 0;
   }
 
   .carousel-error {
     height: 250px;
-    margin-top: 30px;
+    margin-top: 0;
   }
 }
 
@@ -336,7 +348,7 @@
 @media screen and (max-width: 720px) {
   .carousel-error {
     height: 220px;
-    margin-top: 60px;
+    margin-top: 0;
   }
 
   .carousel-error h3 {
