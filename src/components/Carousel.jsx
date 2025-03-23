@@ -95,16 +95,16 @@ const Carousel = () => {
                     </span>
                   </motion.div>
 
-                  {movie && movie.genre_ids && (
+                  {movie && movie.genres && (
                     <motion.div
                       className="posterImage__genres"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.6 }}
                     >
-                      {movie.genre_ids.slice(0, 4).map((genreId, idx) => (
+                      {movie.genres.slice(0, 4).map((genre, idx) => (
                         <span key={idx} className="posterImage__genre">
-                          {getGenreName(genreId)}
+                          {genre.name}
                         </span>
                       ))}
                     </motion.div>
@@ -140,33 +140,6 @@ const Carousel = () => {
       </Swiper>
     </div>
   );
-};
-
-// Fonction qui retourne le nom du genre à partir de son ID
-const getGenreName = (genreId) => {
-  const genres = {
-    28: "Action",
-    12: "Aventure",
-    16: "Animation",
-    35: "Comédie",
-    80: "Crime",
-    99: "Documentaire",
-    18: "Drame",
-    10751: "Famille",
-    14: "Fantastique",
-    36: "Histoire",
-    27: "Horreur",
-    10402: "Musique",
-    9648: "Mystère",
-    10749: "Romance",
-    878: "Science-Fiction",
-    10770: "Téléfilm",
-    53: "Thriller",
-    10752: "Guerre",
-    37: "Western",
-  };
-
-  return genres[genreId] || "Autre";
 };
 
 export default Carousel;
