@@ -95,6 +95,14 @@
   background-color: rgba(251, 238, 97, 0.1);
 }
 
+.swiper-pagination-bullet {
+  background-color: var(--primary-color);
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--primary-color);
+}
+
 /* Styles d'erreur réutilisables */
 .error-container {
   background: linear-gradient(
