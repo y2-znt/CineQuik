@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "motion/react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchDetailsMovies } from "../api/moviesApi";
 import "../CSS/details.css";
 import SimilarMovies from "./moviesList/SimilarMovies";
@@ -159,55 +159,57 @@ const DetailsMovies = () => {
         </div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3 }}
-        style={{ width: "85%" }}
-      >
-        <div className="movie__heading">Production companies</div>
-        <div className="movie__production">
-          {data &&
-            data.production_companies &&
-            data.production_companies.map(
-              (company, index) =>
-                company.logo_path && (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <span className="productionCompanyImage">
-                      <motion.img
-                        className="movie__productionComapany"
-                        src={
-                          "https://image.tmdb.org/t/p/original" +
-                          company.logo_path
-                        }
-                        alt={company.name}
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{
-                          duration: 0.6,
-                          delay: 0.3 + index * 0.1,
-                        }}
-                      />
-                      <motion.span
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{
-                          duration: 0.6,
-                          delay: 0.5 + index * 0.1,
-                        }}
-                      >
-                        {company.name}
-                      </motion.span>
-                    </span>
-                  </motion.div>
-                )
-            )}
-        </div>
-      </motion.div>
+      {data &&
+        data.production_companies &&
+        data.production_companies.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            style={{ width: "85%" }}
+          >
+            <div className="movie__heading">Production companies</div>
+            <div className="movie__production">
+              {data.production_companies.map(
+                (company, index) =>
+                  company.logo_path && (
+                    <motion.div
+                      key={index}
+                      whileHover={{ scale: 1.08 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <span className="productionCompanyImage">
+                        <motion.img
+                          className="movie__productionComapany"
+                          src={
+                            "https://image.tmdb.org/t/p/original" +
+                            company.logo_path
+                          }
+                          alt={company.name}
+                          initial={{ y: 20, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{
+                            duration: 0.6,
+                            delay: 0.3 + index * 0.1,
+                          }}
+                        />
+                        <motion.span
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{
+                            duration: 0.6,
+                            delay: 0.5 + index * 0.1,
+                          }}
+                        >
+                          {company.name}
+                        </motion.span>
+                      </span>
+                    </motion.div>
+                  )
+              )}
+            </div>
+          </motion.div>
+        )}
     </div>
   );
 };

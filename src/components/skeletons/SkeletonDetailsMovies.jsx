@@ -60,18 +60,20 @@ const SkeletonDetailsMovies = () => {
             <motion.div className="skeleton-tagline" animate={pulseAnimation}>
               <motion.div style={shimmerStyle} animate={shimmerAnimation} />
             </motion.div>
-            <motion.div className="skeleton-rating" animate={pulseAnimation}>
-              <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-            </motion.div>
-            <motion.div className="skeleton-runtime" animate={pulseAnimation}>
-              <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-            </motion.div>
-            <motion.div
-              className="skeleton-release-date"
-              animate={pulseAnimation}
-            >
-              <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-            </motion.div>
+            <div className="skeleton-meta">
+              <motion.div className="skeleton-rating" animate={pulseAnimation}>
+                <motion.div style={shimmerStyle} animate={shimmerAnimation} />
+              </motion.div>
+              <motion.div className="skeleton-runtime" animate={pulseAnimation}>
+                <motion.div style={shimmerStyle} animate={shimmerAnimation} />
+              </motion.div>
+              <motion.div
+                className="skeleton-release-date"
+                animate={pulseAnimation}
+              >
+                <motion.div style={shimmerStyle} animate={shimmerAnimation} />
+              </motion.div>
+            </div>
             <div className="skeleton-genres">
               {Array(4)
                 .fill(0)
@@ -104,35 +106,12 @@ const SkeletonDetailsMovies = () => {
       </div>
 
       {/* Skeleton Videos Section */}
-      <div
-        style={{
-          width: "85%",
-          margin: "var(--spacing-3xl) auto var(--spacing-3xl)",
-        }}
-      >
-        <motion.div
-          style={{
-            width: "200px",
-            height: "32px",
-            backgroundColor: "var(--skeleton-base)",
-            borderRadius: "var(--border-radius-sm)",
-            marginBottom: "var(--spacing-lg)",
-            position: "relative",
-            overflow: "hidden",
-          }}
-          animate={pulseAnimation}
-        >
+      <div className="skeleton-videos">
+        <motion.div className="skeleton-videos-title" animate={pulseAnimation}>
           <motion.div style={shimmerStyle} animate={shimmerAnimation} />
         </motion.div>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "30px",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
+        <div className="skeleton-videos-container">
           {Array(2)
             .fill(0)
             .map((_, index) => (
@@ -153,17 +132,7 @@ const SkeletonDetailsMovies = () => {
                   flexDirection: "column",
                 }}
               >
-                <motion.div
-                  animate={pulseAnimation}
-                  style={{
-                    width: "100%",
-                    height: "270px",
-                    backgroundColor: "var(--skeleton-base)",
-                    borderRadius: "var(--border-radius-sm)",
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
+                <motion.div className="skeleton-video" animate={pulseAnimation}>
                   <motion.div style={shimmerStyle} animate={shimmerAnimation} />
                 </motion.div>
                 <motion.div
@@ -254,56 +223,16 @@ const SkeletonDetailsMovies = () => {
         >
           <motion.div style={shimmerStyle} animate={shimmerAnimation} />
         </motion.div>
-
-        <div
-          className="movie__production skeleton-production"
-          style={{ gap: "3rem" }}
-        >
-          {Array(6)
+        <div className="skeleton-production-companies">
+          {Array(4)
             .fill(0)
             .map((_, index) => (
               <motion.div
                 key={index}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: "rgba(255, 255, 255, 0.08)",
-                  backdropFilter: "blur(10px)",
-                  padding: "var(--spacing-md) var(--spacing-lg)",
-                  borderRadius: "var(--border-radius-md)",
-                  boxShadow: "var(--box-shadow)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                  width: "180px",
-                  height: "140px",
-                }}
+                className="skeleton-production-company"
+                animate={pulseAnimation}
               >
-                <motion.div
-                  animate={pulseAnimation}
-                  style={{
-                    position: "relative",
-                    overflow: "hidden",
-                    width: "120px",
-                    height: "80px",
-                    marginBottom: "var(--spacing-md)",
-                  }}
-                >
-                  <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-                </motion.div>
-                <motion.div
-                  animate={pulseAnimation}
-                  style={{
-                    position: "relative",
-                    overflow: "hidden",
-                    width: "100px",
-                    height: "16px",
-                    backgroundColor: "var(--skeleton-base)",
-                    borderRadius: "var(--border-radius-sm)",
-                  }}
-                >
-                  <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-                </motion.div>
+                <motion.div style={shimmerStyle} animate={shimmerAnimation} />
               </motion.div>
             ))}
         </div>

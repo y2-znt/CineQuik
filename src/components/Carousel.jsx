@@ -95,26 +95,20 @@ const Carousel = () => {
                     </span>
                   </motion.div>
 
-                  <motion.div
-                    className="posterImage__genres"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                  >
-                    {movie && movie.genres
-                      ? movie.genres.slice(0, 4).map((genre, index) => (
-                          <motion.div
-                            key={index}
-                            whileHover={{ scale: 1.1 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <span className="posterImage__genre" id={genre.id}>
-                              {genre.name}
-                            </span>
-                          </motion.div>
-                        ))
-                      : ""}
-                  </motion.div>
+                  {movie && movie.genre_ids && (
+                    <motion.div
+                      className="posterImage__genres"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 }}
+                    >
+                      {movie.genre_ids.slice(0, 4).map((genreId, idx) => (
+                        <span key={idx} className="posterImage__genre">
+                          {getGenreName(genreId)}
+                        </span>
+                      ))}
+                    </motion.div>
+                  )}
 
                   <motion.div
                     className="posterImage__description"
@@ -146,6 +140,33 @@ const Carousel = () => {
       </Swiper>
     </div>
   );
+};
+
+// Fonction qui retourne le nom du genre à partir de son ID
+const getGenreName = (genreId) => {
+  const genres = {
+    28: "Action",
+    12: "Aventure",
+    16: "Animation",
+    35: "Comédie",
+    80: "Crime",
+    99: "Documentaire",
+    18: "Drame",
+    10751: "Famille",
+    14: "Fantastique",
+    36: "Histoire",
+    27: "Horreur",
+    10402: "Musique",
+    9648: "Mystère",
+    10749: "Romance",
+    878: "Science-Fiction",
+    10770: "Téléfilm",
+    53: "Thriller",
+    10752: "Guerre",
+    37: "Western",
+  };
+
+  return genres[genreId] || "Autre";
 };
 
 export default Carousel;
