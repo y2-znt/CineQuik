@@ -1,127 +1,203 @@
 .poster {
   margin-top: 80px;
+  position: relative;
 }
 
 .posterImage {
-  height: 600px;
+  height: 85vh;
   width: 100%;
   position: relative;
   overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.posterImage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 10%,
+    rgba(0, 0, 0, 0.7) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .posterImage > img {
   margin: auto;
   display: block;
   width: 100%;
-  opacity: 50%;
-  height: 150%;
-  opacity: 0;
-  animation: fadeinBackdrop 1s ease forwards 1s;
-  transition: transform 0.5s ease;
+  height: 120%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 70%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 70%,
+    transparent 100%
+  );
 }
 
 .posterImage__overlay {
   position: absolute;
-  padding: 5rem;
-  bottom: 0px;
-  height: 50%;
+  padding: var(--spacing-2xl);
+  bottom: 15%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
-  opacity: 0;
-  animation: fadein 1s ease forwards 2s;
-  visibility: hidden;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 2;
 }
 
 .posterImage__title {
   font-weight: 700;
-  font-size: 4rem;
-  margin-bottom: 0.4rem;
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-sm);
   text-align: left;
+  color: var(--text-color);
+  text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.posterImage__title::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--primary-color);
+  border-radius: 2px;
 }
 
 .posterImage__runtime {
-  font-size: 2rem;
+  font-size: var(--font-size-xl);
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin: var(--spacing-lg) 0 var(--spacing-md) 0;
   text-align: left;
+  color: var(--text-color);
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  opacity: 0.9;
 }
 
 .posterImage__raiting {
-  font-size: 2rem;
-  font-weight: 500;
-  padding-left: 40px;
+  color: var(--text-color);
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-left: var(--spacing-xl);
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+}
+
+.posterImage__raiting i {
+  color: var(--primary-color);
+  margin-right: var(--spacing-xs);
 }
 
 .posterImage__description {
   font-style: italic;
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  display: flex;
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-xl);
   text-align: left;
   width: 70%;
-}
-
-@keyframes fadeinBackdrop {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-  }
-  100% {
-    opacity: 0.7;
-    visibility: visible;
-  }
+  color: var(--text-color);
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.8);
+  opacity: 0.9;
+  max-height: 120px;
+  overflow-y: auto;
 }
 
 /* Skeleton Loader Styles */
 .skeleton-posterImage {
-  height: 600px;
+  height: 85vh;
   width: 100%;
-  background-color: #2a2a2a;
+  background-color: var(--skeleton-base);
   position: relative;
-  animation: pulse 1.5s infinite ease-in-out;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 70%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 70%,
+    transparent 100%
+  );
+}
+
+.skeleton-posterImage::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 10%,
+    rgba(0, 0, 0, 0.7) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .skeleton-overlay {
   position: absolute;
-  padding: 5rem;
-  bottom: 0px;
-  height: 50%;
+  padding: var(--spacing-2xl);
+  bottom: 15%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
+  z-index: 2;
 }
 
 .skeleton-title {
   height: 4rem;
   width: 60%;
-  background-color: #3a3a3a;
-  margin-bottom: 0.4rem;
-  border-radius: 4px;
-  animation: pulse 1.5s infinite ease-in-out;
+  background-color: var(--skeleton-highlight);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  position: relative;
+  overflow: hidden;
 }
 
 .skeleton-runtime {
   height: 2rem;
   width: 30%;
-  background-color: #3a3a3a;
-  margin-bottom: 1rem;
-  border-radius: 4px;
-  animation: pulse 1.5s infinite ease-in-out;
+  background-color: var(--skeleton-highlight);
+  margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+  border-radius: var(--border-radius-sm);
+  position: relative;
+  overflow: hidden;
 }
 
 .skeleton-description {
   height: 4rem;
   width: 70%;
-  background-color: #3a3a3a;
-  margin-bottom: 2rem;
-  border-radius: 4px;
-  animation: pulse 1.5s infinite ease-in-out;
+  background-color: var(--skeleton-highlight);
+  margin-bottom: var(--spacing-xl);
+  border-radius: var(--border-radius-sm);
+  position: relative;
+  overflow: hidden;
 }
 
 @keyframes pulse {
@@ -136,66 +212,27 @@
   }
 }
 
-@keyframes fadein {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-  }
-  100% {
-    opacity: 1;
-    visibility: visible;
-  }
+.carousel-error-button {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background: var(--error-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/*  Responsive tablet */
-@media screen and (max-width: 900px) {
-  .posterImage {
-    height: 400px;
-  }
-
-  .posterImage__title {
-    font-size: 2rem;
-  }
-
-  .posterImage__runtime {
-    font-size: 1rem;
-  }
-
-  .posterImage__raiting {
-    font-size: 1rem;
-  }
-
-  .posterImage__description {
-    font-size: 0.7rem;
-  }
-
-  /* Skeleton responsive tablet */
-  .skeleton-posterImage {
-    height: 400px;
-  }
-
-  .skeleton-title {
-    height: 2rem;
-  }
-
-  .skeleton-runtime {
-    height: 1rem;
-  }
-
-  .skeleton-description {
-    height: 2.5rem;
-  }
+.carousel-error-button i {
+  margin-right: var(--spacing-xs);
 }
 
 /* Responsive mobile */
 @media screen and (max-width: 720px) {
   .poster {
     margin-top: 56px;
-  }
-
-  .posterImage {
-    height: 300px;
-    margin-top: 0;
   }
 
   .posterImage > img {
@@ -205,11 +242,13 @@
 
   .posterImage__overlay {
     padding: 15px;
-    height: 60%;
+    height: 70%;
+    bottom: 10%;
   }
+
   .posterImage__title {
     font-size: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
 
@@ -234,34 +273,27 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   }
 
-  /* Skeleton responsive mobile */
-  .skeleton-posterImage {
-    height: 300px;
-    margin-top: 0;
-  }
-
   .skeleton-overlay {
     padding: 15px;
-    height: 60%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    height: 70%;
+    bottom: 10%;
   }
 
   .skeleton-title {
     height: 1.5rem;
     width: 70%;
-    margin-top: 2rem;
   }
 
   .skeleton-runtime {
     height: 0.9rem;
     width: 40%;
-    margin-bottom: 0.5rem;
+    margin: var(--spacing-md) 0 var(--spacing-sm) 0;
   }
 
   .skeleton-description {
-    height: 4rem;
+    height: 3.5rem;
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: var(--spacing-md);
   }
 }
 
@@ -271,13 +303,9 @@
     margin-top: 56px;
   }
 
-  .posterImage {
-    height: 250px;
-    margin-top: 0;
-  }
-
   .posterImage__overlay {
     padding: 10px;
+    bottom: 5%;
   }
 
   .posterImage__title {
@@ -288,14 +316,21 @@
     font-size: 0.8rem;
   }
 
-  .skeleton-posterImage {
+  .carousel-error {
     height: 250px;
     margin-top: 0;
   }
 
-  .carousel-error {
-    height: 250px;
-    margin-top: 0;
+  .skeleton-title {
+    height: 1.2rem;
+  }
+
+  .skeleton-runtime {
+    height: 0.8rem;
+  }
+
+  .skeleton-description {
+    height: 3rem;
   }
 }
 
