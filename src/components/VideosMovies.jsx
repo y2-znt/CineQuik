@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
 import { fetchVideosMovies } from "../api/moviesApi";
 import "../CSS/details.css";
-import FadeOnScroll from "./animations/FadeOnScroll";
 import SkeletonVideosMovies, {
   ErrorVideosMovies,
 } from "./skeletons/SkeletonVideosMovies";
@@ -22,38 +21,56 @@ const VideosMovies = () => {
   if (error) return <ErrorVideosMovies message={error.message} />;
 
   const opts = {
-    height: "390",
-    width: "640",
+    height: "270",
+    width: "480",
     playerVars: {
       autoplay: 0,
+      modestbranding: 1,
+      rel: 0,
     },
   };
 
+  // If no videos found
+  if (!data || data.length === 0) {
+    return null;
+  }
+
   return (
-    <FadeOnScroll>
-      <div className="movie__videos">
-        <motion.div
-          className="movie__heading"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          Videos
-        </motion.div>
-        <div className="movie__videos-container">
-          {data &&
-            data.slice(0, 4).map((video) => (
-              <motion.div
-                key={video.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                <YouTube videoId={video.key} opts={opts} />
-              </motion.div>
-            ))}
-        </div>
+    <motion.div
+      className="movie__videos"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+    >
+      <motion.div
+        className="movie__heading"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        Videos
+      </motion.div>
+      <div className="movie__videos-container">
+        {data &&
+          data.slice(0, 4).map((video, index) => (
+            <motion.div
+              key={video.id}
+              className="video-wrapper"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+            >
+              <YouTube videoId={video.key} opts={opts} />
+              {video.name && (
+                <motion.div className="video-title">
+                  <i className="fas fa-play-circle video-icon"></i>
+                  {video.name}
+                </motion.div>
+              )}
+            </motion.div>
+          ))}
       </div>
-    </FadeOnScroll>
+    </motion.div>
   );
 };
 
