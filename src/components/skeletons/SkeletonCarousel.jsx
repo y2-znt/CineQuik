@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import React from "react";
 import "../../CSS/carousel.css";
-import "../../CSS/global.css";
 
 export const SkeletonCarousel = () => {
   const pulseAnimation = {
