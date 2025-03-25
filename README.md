@@ -1,6 +1,5 @@
 # CineQuik 🎬🍿
 
-
 ## Project Description
 
 CineQuik is a movie application using the [TMDB](https://www.themoviedb.org/?language=fr) API to provide an immersive cinema experience. The aim of this project was to create an application for movie enthusiasts to explore and discover detailed information about movies, trailers, and more.
@@ -9,13 +8,15 @@ CineQuik is a movie application using the [TMDB](https://www.themoviedb.org/?lan
 
 Check out the project online 👉 [here](https://cinequik.vercel.app/)
 
-
 ## Screenshots 📸
 
 ### Home page :
-![Home Page](https://github.com/Yoni-Deserbaix/CineQuik/blob/main/Screenshots/Home-page.png)
+
+![Home Page](https://github.com/y2-znt/CineQuik/blob/main/Screenshots/Home-page.png)
+
 ### Details Movie page :
-![Details Page](https://github.com/Yoni-Deserbaix/CineQuik/blob/main/Screenshots/Details-page.png)
+
+![Details Page](https://github.com/y2-znt/CineQuik/blob/main/Screenshots/Details-page.png)
 
 ## Features
 
@@ -27,17 +28,17 @@ Check out the project online 👉 [here](https://cinequik.vercel.app/)
   - List of similar movies
   - Links redirecting to the movie's website
 
-
 ## Technologies Used 🛠️
 
-- React <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="15" alt="react logo"  /> 
-- JavaScript  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="15" alt="javascript logo"  />
+- React <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="15" alt="react logo"  />
+- JavaScript <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="15" alt="javascript logo"  />
 - [Axios](https://axios-http.com/) - for HTTP requests
 - [React Router DOM](https://github.com/remix-run/react-router) - for application navigation
 - [Swiper](https://swiperjs.com/) - for carousel and slide management
 - [React-Youtube](https://www.npmjs.com/package/react-youtube) - for YouTube video integration
 
   ## Inspirations 💭
+
 - https://github.com/PrinceRaaaj/IMDB-clone-ReactApp
 - https://github.com/trananhtuat/react-movie
 
@@ -45,26 +46,27 @@ Check out the project online 👉 [here](https://cinequik.vercel.app/)
 
 1. Clone the GitHub repository to your local machine <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="15" alt="git logo" />:
 
-    ```bash
-    git clone https://github.com/Yoni-Deserbaix/CineQuik.git
-    ```
+   ```bash
+   git clone https://github.com/y2-znt/CineQuik.git
+   ```
 
 2. Navigate to the project directory:
 
-    ```bash
-    cd CineQuik
-    ```
+   ```bash
+   cd CineQuik
+   ```
 
 3. Install the dependencies:
 
-    ```bash
-    npm install 
-    ```
+   ```bash
+   npm install
+   ```
+
 4. Run the project:
 
-    ```bash
-    npm start 
-    ```
+   ```bash
+   npm start
+   ```
 
 ## Skills Gained 📚
 
@@ -94,9 +96,9 @@ To fix a bug or enhance an existing module, follow these steps:
 ### 📩 Bug / Feature Request
 
 If you find a bug (failure of a module to execute its intended function), kindly open an issue
-[here](https://github.com/Yoni-Deserbaix/CineQuik/issues/new) by including the issue with a
+[here](https://github.com/y2-znt/CineQuik/issues/new) by including the issue with a
 title and clear description.
 
 If you'd like to request a new function, feel free to do so by opening an issue
-[here](https://github.com/Yoni-Deserbaix/CineQuik/issues/new). Please include sample queries
+[here](https://github.com/y2-znt/CineQuik/issues/new). Please include sample queries
 and their corresponding results.

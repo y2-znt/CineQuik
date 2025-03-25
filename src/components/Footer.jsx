@@ -35,7 +35,9 @@ const Footer = () => {
             <NavLink to="/">Top IMDB</NavLink>
           </div>
         </div>
-        <div className="copyright">© 2024 Yoni Deserbaix. All rights reserved.</div>
+        <div className="copyright">
+          © 2024 Yoni Deserbaix. All rights reserved.
+        </div>
       </div>
     </div>
   );
