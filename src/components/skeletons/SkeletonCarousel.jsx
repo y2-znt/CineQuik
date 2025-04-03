@@ -112,14 +112,14 @@ export const ErrorCarousel = ({ message, onRetry }) => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.2 }}
         >
-          Une erreur est survenue
+          An error occurred
         </motion.h3>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.3 }}
         >
-          {message || "Impossible de charger les films du carousel"}
+          {message || "Unable to load carousel movies"}
         </motion.p>
         <motion.button
           onClick={onRetry || (() => window.location.reload())}
@@ -131,7 +131,7 @@ export const ErrorCarousel = ({ message, onRetry }) => {
           whileTap={{ scale: 0.95 }}
         >
           <i className="fas fa-redo"></i>
-          Réessayer
+          Try again
         </motion.button>
       </motion.div>
     </div>

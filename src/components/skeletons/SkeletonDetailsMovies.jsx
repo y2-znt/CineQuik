@@ -228,7 +228,7 @@ export const ErrorDetailsMovies = ({ message }) => {
             marginBottom: "var(--spacing-md)",
           }}
         >
-          Une erreur est survenue
+          An error occurred
         </h3>
         <p style={{ fontSize: "var(--font-size-lg)" }}>{message}</p>
         <motion.button
@@ -250,7 +250,7 @@ export const ErrorDetailsMovies = ({ message }) => {
             className="fas fa-redo"
             style={{ marginRight: "var(--spacing-xs)" }}
           ></i>
-          Réessayer
+          Try again
         </motion.button>
       </motion.div>
     </div>
