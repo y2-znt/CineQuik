@@ -1,23 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../CSS/header.css";
+import Searchbar from "./Searchbar";
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -61,6 +49,7 @@ const Header = () => {
           />
           CineQuick
         </NavLink>
+        <Searchbar onSearch={handleSearchResults} />
       </div>
 
       <div className="headerRight">
