@@ -4,14 +4,13 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import PopularMovieList from "../components/moviesList/PopularMovieList";
 import TopRatedMovieList from "../components/moviesList/TopRatedMovieList";
-import Searchbar from "../components/Searchbar";
 
 const Home = () => {
   return (
     <div>
       <Header />
       <Carousel />
-      <Searchbar />
+      <div style={{ marginTop: "164px" }}></div>
       <PopularMovieList />
       <div style={{ marginTop: "28px" }}></div>
       <TopRatedMovieList />

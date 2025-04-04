@@ -19,9 +19,25 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleNav = () => {
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showNav && !event.target.closest(".headerRight")) {
+        hideNav();
+      }
+    };
+
+    if (showNav) {
+      document.addEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [showNav]);
+
+  const toggleNav = (e) => {
+    e.stopPropagation();
     setShowNav(!showNav);
-    // Prevent body scrolling when menu is open
     document.body.style.overflow = !showNav ? "hidden" : "";
   };
 
@@ -30,9 +46,14 @@ const Header = () => {
     document.body.style.overflow = "";
   };
 
+  const handleSearchResults = (results) => {
+    // TODO: Handle search results (e.g., navigate to search results page)
+    console.log("Search results:", results);
+  };
+
   return (
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
-      <div className="headerRight">
+      <div className="headerLeft">
         <NavLink to="/" className="logo">
           <img
             src="https://static.vecteezy.com/system/resources/previews/001/186/943/original/green-play-button-png.png"
@@ -40,20 +61,16 @@ const Header = () => {
           />
           CineQuick
         </NavLink>
+      </div>
 
-        <input
-          type="checkbox"
-          id="check"
-          checked={showNav}
-          onChange={toggleNav}
-        />
-        <label htmlFor="check" className="checkbtn">
-          <div className="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </label>
+      <div className="headerRight">
+        <button
+          className={`menu-button ${showNav ? "active" : ""}`}
+          onClick={toggleNav}
+          aria-label="Toggle menu"
+        >
+          <i className={`fas ${showNav ? "fa-times" : "fa-bars"}`}></i>
+        </button>
 
         <ul className={showNav ? "show" : ""}>
           <NavLink
@@ -79,7 +96,10 @@ const Header = () => {
           </NavLink>
         </ul>
 
-        {showNav && <div className="overlay" onClick={hideNav}></div>}
+        <div
+          className={`overlay ${showNav ? "show" : ""}`}
+          onClick={hideNav}
+        ></div>
       </div>
     </header>
   );
