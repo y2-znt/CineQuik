@@ -105,7 +105,7 @@ const Searchbar = ({ onSearch }) => {
 
           <div className="search-results">
             {data &&
-              data.slice(0, 8).map((movie) => (
+              data.map((movie) => (
                 <Link
                   to={`/details/${movie.id}`}
                   key={movie.id}

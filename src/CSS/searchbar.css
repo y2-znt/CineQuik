@@ -71,11 +71,11 @@
   position: absolute;
   top: calc(100% + var(--spacing-xs));
   left: 0;
-  width: 320px;
+  width: 100%;
   background-color: var(--bg-light);
   border-radius: var(--border-radius-md);
   box-shadow: var(--box-shadow);
-  max-height: 80vh;
+  max-height: 50vh;
   overflow-y: auto;
   animation: fadeIn 0.3s ease;
 }
@@ -102,7 +102,6 @@
 }
 
 .search-results {
-  padding: var(--spacing-xs);
 }
 
 .search-results .card {
@@ -130,6 +129,7 @@
   height: 68px;
   border-radius: var(--border-radius-sm);
   object-fit: cover;
+  margin: var(--spacing-sm);
 }
 
 .search-results .card__content {
@@ -168,12 +168,11 @@
 @media screen and (max-width: 768px) {
   .search-results-container {
     position: fixed;
-    top: 46px;
+    top: 56px;
     left: 0;
     right: 0;
-    width: 100%;
-    max-height: calc(100vh - 46px);
-    border-radius: 0;
+    width: 75%;
+    margin: 0 auto;
   }
 
   .search-results .card {
