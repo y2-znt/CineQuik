@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { motion } from "motion/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import "swiper/css/bundle";
@@ -12,7 +13,6 @@ import {
 import { Swiper, SwiperSlide } from "swiper/react";
 import { fetchCarouselMovies } from "../api/moviesApi";
 import "../CSS/carousel.css";
-import FadeInOnScroll from "./animations/FadeInOnScroll";
 import FadeUpOnScroll from "./animations/FadeUpOnScroll";
 import { ErrorCarousel, SkeletonCarousel } from "./skeletons/SkeletonCarousel";
 
@@ -48,21 +48,26 @@ const Carousel = () => {
         {data &&
           data.map((movie, index) => (
             <SwiperSlide key={index}>
-              <div className="posterImage">
-                <FadeInOnScroll>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${
-                      movie && movie.backdrop_path
-                    }`}
-                    alt={`${
-                      movie?.title || movie?.original_name || "Movie"
-                    } Poster`}
-                    loading="lazy"
-                    style={{ opacity: 0.8 }}
-                  />
-                </FadeInOnScroll>
-              </div>
-              <div className="posterImage__overlay">
+              <motion.div className="posterImage">
+                <motion.img
+                  src={`https://image.tmdb.org/t/p/original${
+                    movie && movie.backdrop_path
+                  }`}
+                  alt={`${
+                    movie?.title || movie?.original_name || "Movie"
+                  } Poster`}
+                  loading="lazy"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.8 }}
+                  transition={{ duration: 0.6 }}
+                />
+              </motion.div>
+              <motion.div
+                className="posterImage__overlay"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <div className="posterImage__content">
                   <FadeUpOnScroll delay={0.4}>
                     <div className="posterImage__title">
@@ -124,7 +129,7 @@ const Carousel = () => {
                     </div>
                   </FadeUpOnScroll>
                 </div>
-              </div>
+              </motion.div>
             </SwiperSlide>
           ))}
       </Swiper>
