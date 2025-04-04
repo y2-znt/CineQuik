@@ -1,7 +1,7 @@
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 
-export default function FadeOnScroll({ children, delay = 0 }) {
+export default function FadeInOnScroll({ children, delay = 0 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
