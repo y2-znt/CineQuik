@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
 import { fetchSearchMovies } from "../api/moviesApi";
 import "../CSS/searchbar.css";
-import FadeOnScroll from "./animations/FadeOnScroll";
+import FadeUpOnScroll from "./animations/FadeUpOnScroll";
 import Card from "./Card";
 
 const Searchbar = ({ onSearch }) => {
@@ -52,9 +52,9 @@ const Searchbar = ({ onSearch }) => {
         <div className="list__cards">
           {data &&
             data.map((movie) => (
-              <FadeOnScroll key={movie.id}>
+              <FadeUpOnScroll key={movie.id}>
                 <Card movie={movie} />
-              </FadeOnScroll>
+              </FadeUpOnScroll>
             ))}
         </div>
       </div>
