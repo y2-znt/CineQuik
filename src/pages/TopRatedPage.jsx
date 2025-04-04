@@ -9,7 +9,7 @@ const TopRatedPage = () => {
     <div>
       <Header />
       <Searchbar />
-      <TopRatedMovieList />
+      <TopRatedMovieList showViewAll={false} />
       <Footer />
     </div>
   );

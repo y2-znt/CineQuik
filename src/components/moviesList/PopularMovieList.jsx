@@ -9,7 +9,7 @@ import {
   SkeletonMovieList,
 } from "../skeletons/SkeletonMovieList";
 
-const PopularMovieList = () => {
+const PopularMovieList = ({ showViewAll = true }) => {
   const { data, error, isLoading } = useQuery({
     queryKey: ["popularMovies"],
     queryFn: fetchPopularMovies,
@@ -36,9 +36,11 @@ const PopularMovieList = () => {
           }}
         >
           <h2 className="list__title">Popular Movies</h2>
-          <Link to="/popular-movies" className="list__view-all">
-            View All <i className="fas fa-arrow-right"></i>
-          </Link>
+          {showViewAll && (
+            <Link to="/popular-movies" className="list__view-all">
+              View All <i className="fas fa-arrow-right"></i>
+            </Link>
+          )}
         </div>
         <p className="list__subtitle">
           Discover trending movies that audiences can't stop watching right now
@@ -63,20 +65,22 @@ const PopularMovieList = () => {
           ))}
       </div>
 
-      <div className="list__footer">
-        <Link
-          to="/popular-movies"
-          className="btn btn-primary"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "var(--spacing-xs)",
-            textDecoration: "none",
-          }}
-        >
-          Explore All Popular Movies <i className="fas fa-arrow-right"></i>
-        </Link>
-      </div>
+      {showViewAll && (
+        <div className="list__footer">
+          <Link
+            to="/popular-movies"
+            className="btn btn-primary"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "var(--spacing-xs)",
+              textDecoration: "none",
+            }}
+          >
+            Explore All Popular Movies <i className="fas fa-arrow-right"></i>
+          </Link>
+        </div>
+      )}
     </motion.div>
   );
 };

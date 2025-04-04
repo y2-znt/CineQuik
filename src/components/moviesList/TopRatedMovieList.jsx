@@ -9,7 +9,7 @@ import {
   SkeletonMovieList,
 } from "../skeletons/SkeletonMovieList";
 
-const TopRatedMovieList = () => {
+const TopRatedMovieList = ({ showViewAll = true }) => {
   const { data, error, isLoading } = useQuery({
     queryKey: ["topRatedMovies"],
     queryFn: fetchTopRatedMovies,
@@ -36,9 +36,11 @@ const TopRatedMovieList = () => {
           }}
         >
           <h2 className="list__title">Top Rated Movies</h2>
-          <Link to="/top-rated-movies" className="list__view-all">
-            View All <i className="fas fa-arrow-right"></i>
-          </Link>
+          {showViewAll && (
+            <Link to="/top-rated-movies" className="list__view-all">
+              View All <i className="fas fa-arrow-right"></i>
+            </Link>
+          )}
         </div>
         <p className="list__subtitle">
           The highest-rated films of all time, acclaimed by critics and loved by
@@ -64,20 +66,22 @@ const TopRatedMovieList = () => {
           ))}
       </div>
 
-      <div className="list__footer">
-        <Link
-          to="/top-rated-movies"
-          className="btn btn-primary"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "var(--spacing-xs)",
-            textDecoration: "none",
-          }}
-        >
-          Explore All Top Rated Movies <i className="fas fa-arrow-right"></i>
-        </Link>
-      </div>
+      {showViewAll && (
+        <div className="list__footer">
+          <Link
+            to="/top-rated-movies"
+            className="btn btn-primary"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "var(--spacing-xs)",
+              textDecoration: "none",
+            }}
+          >
+            Explore All Top Rated Movies <i className="fas fa-arrow-right"></i>
+          </Link>
+        </div>
+      )}
     </motion.div>
   );
 };

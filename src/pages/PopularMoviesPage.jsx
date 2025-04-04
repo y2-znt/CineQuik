@@ -9,7 +9,7 @@ const MoviesPage = () => {
     <div>
       <Header />
       <Searchbar />
-      <PopularMovieList />
+      <PopularMovieList showViewAll={false} />
       <Footer />
     </div>
   );
