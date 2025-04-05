@@ -1,104 +1,158 @@
-# CineQuik 🎬🍿
+# 🎬 CineQuik – Your Ultimate Movie Explorer
 
-## Project Description
+<div align="center">
 
-CineQuik is a movie application using the [TMDB](https://www.themoviedb.org/?language=fr) API to provide an immersive cinema experience. The aim of this project was to create an application for movie enthusiasts to explore and discover detailed information about movies, trailers, and more.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![TanStack Query](https://img.shields.io/badge/-TanStack%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 
-## View project 👀
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fcinequik.vercel.app&style=flat-square)](https://cinequik.vercel.app/)
 
-Check out the project online 👉 [here](https://cinequik.vercel.app/)
+**A modern and immersive movie discovery platform powered by TMDB API**
 
-## Screenshots 📸
+[Live Demo](https://cinequik.vercel.app) •
+[Features](#-features) •
+[Getting Started](#-getting-started) •
+[Tech Stack](#-tech-stack) •
+[Implementation](#-key-features-implementation) •
+[Contributing](#-contributing) •
+[Support](#-support)
 
-### Home page :
+</div>
 
-![Home Page](https://github.com/y2-znt/CineQuik/blob/main/Screenshots/Home-page.png)
+<img width="1418" alt="image" src="https://github.com/user-attachments/assets/8b5d9114-0e1f-406f-9978-84a1a09da566" />
 
-### Details Movie page :
+## 🌟 Features
 
-![Details Page](https://github.com/y2-znt/CineQuik/blob/main/Screenshots/Details-page.png)
+- **🔍 Intuitive Search**: Instantly find any movie from the TMDB database
+- **🔥 Curated Lists**: Explore “Popular” and “Top-Rated” movie selections
+- **📄 Detailed Info**: See runtime, ratings, release dates, trailers, similar movies & more
+- **📽 Watch Options**: Direct links to official providers when available
+- **⚡ Fast Performance**: Vite-powered builds with lazy loading and code splitting
+- **💅 Modern UI**: Sleek, responsive layout with smooth transitions
 
-## Features
+---
 
-- Movie search
-- Display of movies in "Popular" and "Top-rated" tabs
-- Detailed page for each movie displaying:
-  - Duration, rating, release date, etc.
-  - Trailer and other informational videos about the movie
-  - List of recommended movies
-  - Links redirecting to the movie's website
+## 🛠️ Tech Stack
 
-## Technologies Used 🛠️
+### Core
 
-- React <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="15" alt="react logo"  />
-- JavaScript <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="15" alt="javascript logo"  />
-- [Axios](https://axios-http.com/) - for HTTP requests
-- [React Router DOM](https://github.com/remix-run/react-router) - for application navigation
-- [Swiper](https://swiperjs.com/) - for carousel and slide management
-- [React-Youtube](https://www.npmjs.com/package/react-youtube) - for YouTube video integration
+- **Frontend Framework**: React 18
+- **Build Tool**: Vite
+- **Routing**: React Router v6
+- **State & Caching**: TanStack Query (React Query)
 
-  ## Inspirations 💭
+### Libraries & Tools
 
-- https://github.com/PrinceRaaaj/IMDB-clone-ReactApp
-- https://github.com/trananhtuat/react-movie
+- **HTTP Client**: Axios
+- **UI/UX Enhancements**:
+  - Swiper.js (Carousels)
+  - React-Youtube
+  - Motion (Framer Motion-compatible)
+- **API**: [TMDB – The Movie Database](https://www.themoviedb.org/)
 
-## Usage
+---
 
-1. Clone the GitHub repository to your local machine <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height="15" alt="git logo" />:
+## 🚀 Getting Started
 
-   ```bash
-   git clone https://github.com/y2-znt/CineQuik.git
-   ```
+### 📦 Prerequisites
 
-2. Navigate to the project directory:
+- Node.js (v14+)
+- npm or yarn
+- TMDB API key (free)
 
-   ```bash
-   cd CineQuik
-   ```
+### 🔧 Installation
 
-3. Install the dependencies:
+1. Clone the repo
 
-   ```bash
-   npm install
-   ```
+```bash
+git clone https://github.com/Yoni-Deserbaix/CineQuik.git
+```
 
-4. Run the project:
+2. Move into the project folder
 
-   ```bash
-   npm start
-   ```
+```bash
+cd CineQuik
+```
 
-## Skills Gained 📚
+3. Install dependencies
 
-This project allowed me to deepen my knowledge and skills in React, specifically:
+```bash
+npm install
+# or
+yarn install
+```
 
-- **React Hooks:** Use of useState, useEffect, and useParams to manage state, effects, and parameters in my components.
-- **Library Documentation:** Learning to use and refer to third-party library documentation such as React-Youtube and Swiper to integrate specific functionalities.
+4. Create a `.env` file at the root of the project and add your TMDB API key:
 
-This experience not only helped me build this application but also enhanced my understanding and confidence in using these advanced React features and tools.
+```bash
+VITE_API_KEY=your_api_key_here
+```
 
-## 🔧 Contributing
+5. Run in dev mode
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Visit http://localhost:5173 - You're ready to explore! 🎉
+
+---
+
+## 💡 Key Features Implementation
+
+### 🔄 Data Fetching & Caching
+
+- Cached queries with stale-time strategies
+- Real-time search with debounced inputs
+- Error handling & loading skeletons per section
+
+### 🎯 UX & UI
+
+- Mobile-first responsive design
+- Custom skeletons, animations and page transitions
+- Lazy loaded components for fast initial load
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! 🧠✨  
+You can improve features, fix bugs or suggest ideas.
 
 [![contributors](https://contrib.rocks/image?repo=Yoni-Deserbaix/CineQuik)](https://github.com/Yoni-Deserbaix/CineQuik/graphs/contributors)
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and
-create. Any contributions you make are **greatly appreciated**.
-
-To fix a bug or enhance an existing module, follow these steps:
+### Contribution Guide
 
 1. Fork the repo
-2. Create a new branch (`git checkout -b improve-feature`)
-3. Make the appropriate changes in the files
-4. Commit your changes (`git commit -am 'Improve feature'`)
-5. Push to the branch (`git push origin improve-feature`)
-6. Create a Pull Request 🎉
+2. Create a new branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to your fork (`git push origin feature/AmazingFeature`)
+5. Submit a pull request 🧃
 
-### 📩 Bug / Feature Request
+---
 
-If you find a bug (failure of a module to execute its intended function), kindly open an issue
-[here](https://github.com/y2-znt/CineQuik/issues/new) by including the issue with a
-title and clear description.
+## 📝 Support
 
-If you'd like to request a new function, feel free to do so by opening an issue
-[here](https://github.com/y2-znt/CineQuik/issues/new). Please include sample queries
-and their corresponding results.
+- 📮 Found a bug? [Open an issue](https://github.com/Yoni-Deserbaix/CineQuik/issues/new)
+- 💡 Have a feature idea? [Request it here](https://github.com/Yoni-Deserbaix/CineQuik/issues/new)
+
+---
+
+## 🎨 Credits
+
+- 🎬 [TMDB API](https://www.themoviedb.org/) – the backbone of the movie data
+- 💡 Inspired by multiple open-source movie discovery apps
+
+---
+
+<div align="center">
+
+Made with ❤️ by [y2-znt](https://github.com/y2-znt)
+
+</div>
