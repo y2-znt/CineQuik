@@ -144,11 +144,9 @@ body,
   padding: 0 var(--spacing-md);
 }
 
-.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets
-  .swiper-pagination-bullet {
-  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
-  background-color: var(--primary-color);
+.swiper-pagination-bullet {
+  background-color: var(--primary-color) !important;
+  margin: 0 4px !important;
 }
 
 @media screen and (max-width: 992px) {
