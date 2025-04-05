@@ -7,7 +7,7 @@ export const SkeletonCarousel = () => {
     opacity: [0.5, 0.8, 0.5],
     transition: {
       repeat: Infinity,
-      duration: 0.8,
+      duration: 2,
       ease: "easeInOut",
     },
   };
@@ -24,7 +24,7 @@ export const SkeletonCarousel = () => {
   const shimmerStyle = {
     backgroundImage:
       "linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%)",
-    backgroundSize: "200% 100%",
+    backgroundSize: "0% 100%",
     borderRadius: "inherit",
     height: "100%",
     width: "100%",
@@ -56,41 +56,106 @@ export const SkeletonCarousel = () => {
         </motion.div>
       </motion.div>
 
-      <div className="skeleton-overlay">
-        <div className="skeleton">
-          <div className="skeleton-header">
-            <div className="skeleton-title-container">
-              <div className="skeleton-title" animate={pulseAnimation}>
-                <div style={shimmerStyle} animate={shimmerAnimation} />
-              </div>
-            </div>
-          </div>
-
-          <div className="skeleton-meta">
-            <div className="skeleton-date" animate={pulseAnimation}>
-              <div style={shimmerStyle} animate={shimmerAnimation} />
-            </div>
-            <div className="skeleton-rating" animate={pulseAnimation}>
+      <div className="posterImage__overlay">
+        <div className="posterImage__content">
+          <div className="posterImage__title">
+            <motion.div
+              className="skeleton-title"
+              style={{
+                height: "40px",
+                width: "60%",
+                borderRadius: "4px",
+                background: "var(--skeleton-base)",
+              }}
+              animate={pulseAnimation}
+            >
               <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-            </div>
+            </motion.div>
           </div>
 
-          <div className="skeleton-genres">
+          <div className="posterImage__runtime">
+            <motion.div
+              className="skeleton-date"
+              style={{
+                height: "24px",
+                width: "120px",
+                borderRadius: "4px",
+                background: "var(--skeleton-base)",
+              }}
+              animate={pulseAnimation}
+            >
+              <motion.div style={shimmerStyle} animate={shimmerAnimation} />
+            </motion.div>
+            <motion.div
+              className="skeleton-rating posterImage__rating"
+              style={{
+                height: "24px",
+                width: "80px",
+                borderRadius: "4px",
+                background: "var(--skeleton-base)",
+              }}
+              animate={pulseAnimation}
+            >
+              <motion.div style={shimmerStyle} animate={shimmerAnimation} />
+            </motion.div>
+          </div>
+
+          <div className="posterImage__genres">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="skeleton-genre" animate={pulseAnimation}>
-                <div style={shimmerStyle} animate={shimmerAnimation} />
-              </div>
+              <motion.div
+                key={i}
+                className="posterImage__genre"
+                style={{
+                  height: "24px",
+                  width: "80px",
+                  borderRadius: "20px",
+                  background: "var(--skeleton-base)",
+                }}
+                animate={pulseAnimation}
+              >
+                <motion.div style={shimmerStyle} animate={shimmerAnimation} />
+              </motion.div>
             ))}
           </div>
 
-          <div className="skeleton-description" animate={pulseAnimation}>
-            <div style={shimmerStyle} animate={shimmerAnimation} />
-          </div>
+          <motion.div
+            className="posterImage__description"
+            style={{
+              height: "80px",
+              width: "100%",
+              borderRadius: "4px",
+              background: "var(--skeleton-base)",
+            }}
+            animate={pulseAnimation}
+          >
+            <motion.div style={shimmerStyle} animate={shimmerAnimation} />
+          </motion.div>
 
-          <div className="skeleton-actions">
-            <div className="skeleton-button" animate={pulseAnimation}>
-              <div style={shimmerStyle} animate={shimmerAnimation} />
-            </div>
+          <div className="posterImage__buttons">
+            <motion.div
+              className="posterImage__detailButton"
+              style={{
+                height: "40px",
+                width: "120px",
+                borderRadius: "4px",
+                background: "var(--skeleton-base)",
+              }}
+              animate={pulseAnimation}
+            >
+              <motion.div style={shimmerStyle} animate={shimmerAnimation} />
+            </motion.div>
+            <motion.div
+              className="posterImage__secondaryButton"
+              style={{
+                height: "40px",
+                width: "120px",
+                borderRadius: "4px",
+                background: "var(--skeleton-base)",
+              }}
+              animate={pulseAnimation}
+            >
+              <motion.div style={shimmerStyle} animate={shimmerAnimation} />
+            </motion.div>
           </div>
         </div>
       </div>
