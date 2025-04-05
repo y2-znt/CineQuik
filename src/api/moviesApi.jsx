@@ -62,3 +62,9 @@ export const fetchVideosMovies = async (id) => {
     .get(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`)
     .then((res) => res.data.results);
 };
+
+export const fetchWatchProvidersMovies = async (id) => {
+  return await axios
+    .get(`${BASE_URL}/movie/${id}/watch/providers?api_key=${API_KEY}`)
+    .then((res) => res.data.results);
+};

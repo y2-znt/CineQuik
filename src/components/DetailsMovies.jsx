@@ -10,6 +10,7 @@ import SkeletonDetailsMovies, {
   ErrorDetailsMovies,
 } from "./skeletons/SkeletonDetailsMovies";
 import VideosMovies from "./VideosMovies";
+import WatchProviders from "./WatchProviders";
 
 export default function DetailsMovies() {
   const { id } = useParams();
@@ -118,44 +119,6 @@ export default function DetailsMovies() {
         <RecommendedMovies />
       </div>
 
-      <div className="movie__links">
-        <FadeUpOnScroll delay={0.2}>
-          <div className="movie__heading">Useful Links</div>
-          <div
-            style={{
-              display: "flex",
-              gap: "var(--spacing-md)",
-              flexWrap: "wrap",
-            }}
-          >
-            {data && data.homepage && (
-              <a
-                href={data.homepage}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: "none" }}
-              >
-                <p className="movie__homeButton movie__Button">
-                  Homepage<i className="newTab fas fa-external-link-alt"></i>
-                </p>
-              </a>
-            )}
-            {data && data.imdb_id && (
-              <a
-                href={"https://www.imdb.com/title/" + data.imdb_id}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: "none" }}
-              >
-                <p className="movie__imdbButton movie__Button">
-                  IMDb<i className="newTab fas fa-external-link-alt"></i>
-                </p>
-              </a>
-            )}
-          </div>
-        </FadeUpOnScroll>
-      </div>
-
       {data &&
         data.production_companies &&
         data.production_companies.length > 0 && (
@@ -166,27 +129,29 @@ export default function DetailsMovies() {
                 {data.production_companies.map(
                   (company, index) =>
                     company.logo_path && (
-                      <div key={index}>
-                        <span className="productionCompanyImage">
-                          <FadeInOnScroll delay={0.3 + index * 0.1}>
-                            <img
-                              className="movie__productionComapany"
-                              src={
-                                "https://image.tmdb.org/t/p/original" +
-                                company.logo_path
-                              }
-                              alt={company.name}
-                            />
-                          </FadeInOnScroll>
-                          <span>{company.name}</span>
-                        </span>
-                      </div>
+                      <motion.div
+                        key={index}
+                        className="productionCompanyImage"
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <img
+                          className="movie__productionComapany"
+                          src={
+                            "https://image.tmdb.org/t/p/original" +
+                            company.logo_path
+                          }
+                          alt={company.name}
+                        />
+                        <span>{company.name}</span>
+                      </motion.div>
                     )
                 )}
               </div>
             </FadeUpOnScroll>
           </div>
         )}
+      <WatchProviders />
     </div>
   );
 }

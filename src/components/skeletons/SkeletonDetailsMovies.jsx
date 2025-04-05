@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import React from "react";
 import "../../CSS/details.css";
 import { SkeletonMovieList } from "./SkeletonMovieList";
+import SkeletonVideosMovies from "./SkeletonVideosMovies";
 
 const SkeletonDetailsMovies = () => {
   const pulseAnimation = {
@@ -105,53 +106,10 @@ const SkeletonDetailsMovies = () => {
 
       {/* Skeleton Videos Section */}
       <div className="skeleton-videos">
-        <motion.div className="skeleton-videos-title" animate={pulseAnimation}>
-          <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-        </motion.div>
-
-        <div className="skeleton-videos-container">
-          {Array(2)
-            .fill(0)
-            .map((_, index) => (
-              <motion.div
-                key={index}
-                style={{
-                  backgroundColor: "rgba(20, 20, 20, 0.75)",
-                  backdropFilter: "blur(10px)",
-                  borderRadius: "var(--border-radius-md)",
-                  position: "relative",
-                  overflow: "hidden",
-                  boxShadow: "var(--box-shadow)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
-                  padding: "var(--spacing-md)",
-                  width: "480px",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <motion.div className="skeleton-video" animate={pulseAnimation}>
-                  <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-                </motion.div>
-                <motion.div
-                  animate={pulseAnimation}
-                  style={{
-                    width: "250px",
-                    height: "16px",
-                    backgroundColor: "var(--skeleton-base)",
-                    borderRadius: "var(--border-radius-sm)",
-                    marginTop: "var(--spacing-sm)",
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
-                  <motion.div style={shimmerStyle} animate={shimmerAnimation} />
-                </motion.div>
-              </motion.div>
-            ))}
-        </div>
+        <SkeletonVideosMovies />
       </div>
 
+      <div style={{ marginTop: "100px" }}></div>
       <SkeletonMovieList />
 
       {/* Useful Links Section */}
