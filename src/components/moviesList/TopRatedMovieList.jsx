@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchTopRatedMovies } from "../../api/moviesApi";
 import "../../CSS/movieList.css";
-import FadeUpOnScroll from "../animations/FadeUpOnScroll";
+import FadeUp from "../animations/FadeUp";
 import Card from "../Card";
 import {
   ErrorMovieList,
@@ -10,17 +11,23 @@ import {
 } from "../skeletons/SkeletonMovieList";
 
 const TopRatedMovieList = ({ showViewAll = true }) => {
+  const [visibleMovies, setVisibleMovies] = useState(8);
+
   const { data, error, isLoading } = useQuery({
     queryKey: ["topRatedMovies"],
     queryFn: fetchTopRatedMovies,
   });
+
+  const handleLoadMore = () => {
+    setVisibleMovies((prev) => prev + 8);
+  };
 
   if (isLoading) return <SkeletonMovieList title="Top Rated" />;
   if (error)
     return <ErrorMovieList message={error.message} title="Top Rated" />;
 
   return (
-    <FadeUpOnScroll>
+    <FadeUp>
       <div className="media__list">
         <div className="list__header">
           <div
@@ -45,12 +52,31 @@ const TopRatedMovieList = ({ showViewAll = true }) => {
 
         <div className="list__cards">
           {data &&
-            data.slice(0, 8).map((movie, index) => (
-              <FadeUpOnScroll key={movie.id} delay={index * 0.1}>
+            data.slice(0, visibleMovies).map((movie, index) => (
+              <FadeUp key={movie.id} delay={0.1 + (index % 8) * 0.1}>
                 <Card movie={movie} />
-              </FadeUpOnScroll>
+              </FadeUp>
             ))}
         </div>
+
+        {!showViewAll && data && visibleMovies < data.length && (
+          <div className="list__footer" style={{ marginTop: "2rem" }}>
+            <button
+              onClick={handleLoadMore}
+              className="btn btn-primary"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "var(--spacing-xs)",
+                padding: "12px 24px",
+                fontSize: "1rem",
+                cursor: "pointer",
+              }}
+            >
+              Load More
+            </button>
+          </div>
+        )}
 
         {showViewAll && (
           <div className="list__footer">
@@ -70,7 +96,7 @@ const TopRatedMovieList = ({ showViewAll = true }) => {
           </div>
         )}
       </div>
-    </FadeUpOnScroll>
+    </FadeUp>
   );
 };
 
