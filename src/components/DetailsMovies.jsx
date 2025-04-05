@@ -113,12 +113,12 @@ export default function DetailsMovies() {
       </div>
 
       <VideosMovies />
-      <div style={{ marginTop: "100px" }}></div>
 
       <div className="movie__recommended-section">
         <RecommendedMovies />
       </div>
 
+      <div style={{ marginTop: "100px" }}></div>
       {data &&
         data.production_companies &&
         data.production_companies.length > 0 && (

@@ -13,24 +13,27 @@ export default function RecommendedMovies() {
   });
 
   return (
-    <MovieList
-      title="Recommended Movies"
-      subtitle="Movies you might enjoy if you liked this one"
-      data={data}
-      error={error}
-      isLoading={isLoading}
-      showViewAll={false}
-      useScrollAnimation={true}
-      footer={
-        <p
-          style={{
-            color: "var(--text-secondary)",
-            fontSize: "var(--font-size-sm)",
-          }}
-        >
-          These recommendations are based on genre, cast, and themes
-        </p>
-      }
-    />
+    <>
+      <div style={{ marginTop: "100px" }}></div>
+      <MovieList
+        title="Recommended Movies"
+        subtitle="Movies you might enjoy if you liked this one"
+        data={data}
+        error={error}
+        isLoading={isLoading}
+        showViewAll={false}
+        useScrollAnimation={true}
+        footer={
+          <p
+            style={{
+              color: "var(--text-secondary)",
+              fontSize: "var(--font-size-sm)",
+            }}
+          >
+            These recommendations are based on genre, cast, and themes
+          </p>
+        }
+      />
+    </>
   );
 }
