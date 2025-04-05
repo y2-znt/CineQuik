@@ -25,7 +25,7 @@ Check out the project online 👉 [here](https://cinequik.vercel.app/)
 - Detailed page for each movie displaying:
   - Duration, rating, release date, etc.
   - Trailer and other informational videos about the movie
-  - List of similar movies
+  - List of recommended movies
   - Links redirecting to the movie's website
 
 ## Technologies Used 🛠️

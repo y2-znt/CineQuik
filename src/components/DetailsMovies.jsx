@@ -5,7 +5,7 @@ import { fetchDetailsMovies } from "../api/moviesApi";
 import "../CSS/details.css";
 import FadeInOnScroll from "./animations/FadeInOnScroll";
 import FadeUpOnScroll from "./animations/FadeUpOnScroll";
-import SimilarMovies from "./moviesList/SimilarMovies";
+import RecommendedMovies from "./moviesList/RecommendedMovies";
 import SkeletonDetailsMovies, {
   ErrorDetailsMovies,
 } from "./skeletons/SkeletonDetailsMovies";
@@ -114,8 +114,8 @@ export default function DetailsMovies() {
       <VideosMovies />
       <div style={{ marginTop: "100px" }}></div>
 
-      <div className="movie__similar-section">
-        <SimilarMovies />
+      <div className="movie__recommended-section">
+        <RecommendedMovies />
       </div>
 
       <div className="movie__links">

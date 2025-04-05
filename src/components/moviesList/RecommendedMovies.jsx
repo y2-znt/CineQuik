@@ -1,20 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { fetchSimilarMovies } from "../../api/moviesApi";
+import { fetchRecommendedMovies } from "../../api/moviesApi";
 import MovieList from "./MovieList";
 
-export default function SimilarMovies() {
+export default function RecommendedMovies() {
   const { id } = useParams();
 
   const { data, error, isLoading } = useQuery({
-    queryKey: ["similarMovies", id],
-    queryFn: () => fetchSimilarMovies(id),
+    queryKey: ["recommendedMovies", id],
+    queryFn: () => fetchRecommendedMovies(id),
     enabled: !!id,
   });
 
   return (
     <MovieList
-      title="Similar Movies"
+      title="Recommended Movies"
       subtitle="Movies you might enjoy if you liked this one"
       data={data}
       error={error}

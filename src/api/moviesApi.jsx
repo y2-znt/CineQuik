@@ -45,9 +45,9 @@ export const fetchSearchMovies = async (query) => {
   return response.data.results;
 };
 
-export const fetchSimilarMovies = async (id) => {
+export const fetchRecommendedMovies = async (id) => {
   return await axios
-    .get(`${BASE_URL}/movie/${id}/similar?api_key=${API_KEY}`)
+    .get(`${BASE_URL}/movie/${id}/recommendations?api_key=${API_KEY}`)
     .then((res) => res.data.results);
 };
 
