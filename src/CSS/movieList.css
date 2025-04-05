@@ -105,15 +105,12 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.list__button {
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--font-size-md);
+  gap: var(--spacing-xs);
+  text-decoration: none;
 }
 
 .card-animated {
