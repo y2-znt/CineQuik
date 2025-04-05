@@ -12,6 +12,7 @@ const Cards = ({ movie }) => {
     <NavLink
       to={`/details/${movie?.id}`}
       style={{ textDecoration: "none", color: "white" }}
+      aria-label={`View details for ${movie?.title || "movie"}`}
     >
       <div className="cards">
         {!isLoaded && <Skeleton />}

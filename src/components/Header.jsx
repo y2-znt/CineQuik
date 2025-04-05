@@ -43,10 +43,7 @@ const Header = () => {
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="headerLeft">
         <NavLink to="/" className="logo">
-          <img
-            src="https://static.vecteezy.com/system/resources/previews/001/186/943/original/green-play-button-png.png"
-            alt="logo"
-          />
+          <img src="/logo.webp" alt="CineQuik Logo" />
           CineQuick
         </NavLink>
         <Searchbar onSearch={handleSearchResults} />
@@ -62,27 +59,33 @@ const Header = () => {
         </button>
 
         <ul className={showNav ? "show" : ""}>
-          <NavLink
-            to="/"
-            onClick={hideNav}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            <li>Home</li>
-          </NavLink>
-          <NavLink
-            to="/popular-movies"
-            onClick={hideNav}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            <li>Popular</li>
-          </NavLink>
-          <NavLink
-            to="/top-rated-movies"
-            onClick={hideNav}
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            <li>Top Rated</li>
-          </NavLink>
+          <li>
+            <NavLink
+              to="/"
+              onClick={hideNav}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/popular-movies"
+              onClick={hideNav}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Popular
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/top-rated-movies"
+              onClick={hideNav}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Top Rated
+            </NavLink>
+          </li>
         </ul>
 
         <div

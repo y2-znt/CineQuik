@@ -9,10 +9,7 @@ const Footer = () => {
         <div className="footer__content__main">
           <div className="footer__content__about">
             <div className="logo">
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/001/186/943/original/green-play-button-png.png"
-                alt="CineQuik Logo"
-              />
+              <img src="/logo.webp" alt="CineQuik Logo" />
               <NavLink to="/">CineQuik</NavLink>
             </div>
             <p className="footer__description">

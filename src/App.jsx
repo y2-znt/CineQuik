@@ -1,4 +1,3 @@
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./components/utils/ScrollToTop";
