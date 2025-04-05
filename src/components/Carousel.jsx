@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "motion/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "swiper/css/bundle";
 import {
@@ -21,6 +21,20 @@ const Carousel = () => {
     queryKey: ["carouselMovies"],
     queryFn: fetchCarouselMovies,
   });
+
+  // Add preload link for the first image
+  useEffect(() => {
+    if (data && data.length > 0 && data[0].backdrop_path) {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = `https://image.tmdb.org/t/p/original${data[0].backdrop_path}`;
+      document.head.appendChild(link);
+      return () => {
+        document.head.removeChild(link);
+      };
+    }
+  }, [data]);
 
   if (isLoading) return <SkeletonCarousel />;
   if (error) return <ErrorCarousel message={error.message} />;
@@ -44,6 +58,10 @@ const Carousel = () => {
         speed={800}
         effect={"fade"}
         fadeEffect={{ crossFade: true }}
+        lazy={{
+          loadPrevNext: true,
+          loadPrevNextAmount: 2,
+        }}
       >
         {data &&
           data.map((movie, index) => (
@@ -53,10 +71,9 @@ const Carousel = () => {
                   src={`https://image.tmdb.org/t/p/original${
                     movie && movie.backdrop_path
                   }`}
-                  alt={`${
-                    movie?.title || movie?.original_name || "Movie"
-                  } Poster`}
-                  loading="lazy"
+                  alt={`${movie?.title || movie?.original_name} - Poster & details`}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  fetchpriority={index === 0 ? "high" : "auto"}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 0.8 }}
                   transition={{ duration: 0.6 }}
@@ -116,12 +133,14 @@ const Carousel = () => {
                       <Link
                         to={`/details/${movie?.id}`}
                         className="posterImage__detailButton"
+                        aria-label={`View details for ${movie?.title || movie?.original_name || ""}`}
                       >
                         See More
                       </Link>
                       <Link
                         to="/top-rated-movies"
                         className="posterImage__secondaryButton"
+                        aria-label="View top rated movies"
                       >
                         <i className="fas fa-award"></i>
                         <span>Top Rated</span>
