@@ -71,10 +71,6 @@ const SkeletonVideosMovies = () => {
                 display: "flex",
                 flexDirection: "column",
               }}
-              whileHover={{
-                y: -8,
-                transition: { duration: 0.3 },
-              }}
             >
               <motion.div
                 animate={pulseAnimation}

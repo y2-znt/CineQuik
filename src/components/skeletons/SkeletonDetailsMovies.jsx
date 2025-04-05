@@ -26,7 +26,7 @@ const SkeletonDetailsMovies = () => {
   const shimmerStyle = {
     backgroundImage:
       "linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%)",
-    backgroundSize: "200% 100%",
+    backgroundSize: "00% 100%",
     borderRadius: "inherit",
     height: "100%",
     width: "100%",

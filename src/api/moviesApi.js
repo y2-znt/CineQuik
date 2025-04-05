@@ -11,7 +11,7 @@ export const fetchCarouselMovies = async () => {
 
   const [moviesResponse, specificMovieResponse] = await Promise.all([
     axios.get(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`),
-    axios.get(`${BASE_URL}/movie/272?api_key=${API_KEY}`),
+    axios.get(`${BASE_URL}/movie/569094?api_key=${API_KEY}`),
   ]);
 
   const movies = moviesResponse.data.results;
