@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import React from "react";
-import "../../CSS/details.css";
+import "../../css/details.css";
 import { SkeletonMovieList } from "./SkeletonMovieList";
 import SkeletonVideosMovies from "./SkeletonVideosMovies";
 

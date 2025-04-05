@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import React from "react";
-import "../../CSS/card.css";
+import "../../css/card.css";
 
 const SkeletonCard = () => {
   const shimmerAnimation = {

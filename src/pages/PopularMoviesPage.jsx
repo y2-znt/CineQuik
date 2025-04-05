@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import PopularMovieList from "../components/moviesList/PopularMovieList";
+import Footer from "../components/layouts/Footer";
+import Header from "../components/layouts/Header";
+import PopularMovieList from "../components/moviesList/components/PopularMovieList";
 
 const MoviesPage = () => {
   return (

@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import "../../CSS/movieList.css";
+import "../../css/movieList.css";
 
 export const SkeletonMovieList = ({ title = "Movies" }) => {
   return (

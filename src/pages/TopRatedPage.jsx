@@ -1,7 +1,7 @@
 import React from "react";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import TopRatedMovieList from "../components/moviesList/TopRatedMovieList";
+import Footer from "../components/layouts/Footer";
+import Header from "../components/layouts/Header";
+import TopRatedMovieList from "../components/moviesList/components/TopRatedMovieList";
 
 const TopRatedPage = () => {
   return (

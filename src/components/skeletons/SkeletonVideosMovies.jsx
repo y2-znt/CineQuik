@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import React from "react";
-import "../../CSS/details.css";
+import "../../css/details.css";
 
 const SkeletonVideosMovies = () => {
   const pulseAnimation = {
@@ -135,7 +135,7 @@ export const ErrorVideosMovies = ({ message }) => {
             marginBottom: "var(--spacing-sm)",
           }}
         >
-          Impossible de charger les vidéos
+          Impossible to load videos
         </h3>
         <p style={{ fontSize: "var(--font-size-md)" }}>{message}</p>
         <motion.button
@@ -157,7 +157,7 @@ export const ErrorVideosMovies = ({ message }) => {
             className="fas fa-redo"
             style={{ marginRight: "var(--spacing-xs)" }}
           ></i>
-          Réessayer
+          Try again
         </motion.button>
       </motion.div>
     </div>

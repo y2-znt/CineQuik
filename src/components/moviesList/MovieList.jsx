@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../../CSS/movieList.css";
+import "../../css/movieList.css";
 import FadeUp from "../animations/FadeUp";
 import FadeUpOnScroll from "../animations/FadeUpOnScroll";
-import Card from "../Card";
+import Card from "../shared/Card";
 import {
   ErrorMovieList,
   SkeletonMovieList,

@@ -1,9 +1,9 @@
 import React from "react";
-import Carousel from "../components/Carousel";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import PopularMovieList from "../components/moviesList/PopularMovieList";
-import TopRatedMovieList from "../components/moviesList/TopRatedMovieList";
+import Footer from "../components/layouts/Footer";
+import Header from "../components/layouts/Header";
+import PopularMovieList from "../components/moviesList/components/PopularMovieList";
+import TopRatedMovieList from "../components/moviesList/components/TopRatedMovieList";
+import Carousel from "../components/shared/Carousel";
 
 const Home = () => {
   return (
