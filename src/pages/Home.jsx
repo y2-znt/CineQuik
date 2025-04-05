@@ -11,9 +11,9 @@ const Home = () => {
       <Header />
       <Carousel />
       <div style={{ marginTop: "164px" }}></div>
-      <PopularMovieList />
+      <PopularMovieList useScrollAnimation={true} />
       <div style={{ marginTop: "28px" }}></div>
-      <TopRatedMovieList />
+      <TopRatedMovieList useScrollAnimation={true} />
       <Footer />
     </div>
   );

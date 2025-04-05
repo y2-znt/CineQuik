@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 import { fetchTopRatedMovies } from "../../api/moviesApi";
 import "../../CSS/movieList.css";
 import FadeUp from "../animations/FadeUp";
+import FadeUpOnScroll from "../animations/FadeUpOnScroll";
 import Card from "../Card";
 import {
   ErrorMovieList,
   SkeletonMovieList,
 } from "../skeletons/SkeletonMovieList";
 
-const TopRatedMovieList = ({ showViewAll = true }) => {
+const TopRatedMovieList = ({
+  showViewAll = true,
+  useScrollAnimation = false,
+}) => {
   const [visibleMovies, setVisibleMovies] = useState(8);
 
   const { data, error, isLoading } = useQuery({
@@ -26,8 +30,10 @@ const TopRatedMovieList = ({ showViewAll = true }) => {
   if (error)
     return <ErrorMovieList message={error.message} title="Top Rated" />;
 
+  const Wrapper = useScrollAnimation ? FadeUpOnScroll : FadeUp;
+
   return (
-    <FadeUp>
+    <Wrapper>
       <div className="media__list">
         <div className="list__header">
           <div
@@ -53,9 +59,9 @@ const TopRatedMovieList = ({ showViewAll = true }) => {
         <div className="list__cards">
           {data &&
             data.slice(0, visibleMovies).map((movie, index) => (
-              <FadeUp key={movie.id} delay={0.1 + (index % 8) * 0.1}>
+              <Wrapper key={movie.id} delay={0.1 + (index % 8) * 0.1}>
                 <Card movie={movie} />
-              </FadeUp>
+              </Wrapper>
             ))}
         </div>
 
@@ -96,7 +102,7 @@ const TopRatedMovieList = ({ showViewAll = true }) => {
           </div>
         )}
       </div>
-    </FadeUp>
+    </Wrapper>
   );
 };
 
