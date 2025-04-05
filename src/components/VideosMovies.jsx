@@ -20,16 +20,6 @@ const VideosMovies = () => {
   if (isLoading) return <SkeletonVideosMovies />;
   if (error) return <ErrorVideosMovies message={error.message} />;
 
-  const opts = {
-    height: "270",
-    width: "480",
-    playerVars: {
-      autoplay: 0,
-      modestbranding: 1,
-      rel: 0,
-    },
-  };
-
   const trailerVideos = data?.filter((video) => video.type === "Trailer") || [];
 
   if (!trailerVideos || trailerVideos.length === 0) {
@@ -60,7 +50,7 @@ const VideosMovies = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
           >
-            <YouTube videoId={video.key} opts={opts} />
+            <YouTube videoId={video.key} />
             {video.name && (
               <motion.div className="video-title">
                 <i className="fas fa-play-circle video-icon"></i>
