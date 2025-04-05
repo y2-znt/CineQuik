@@ -115,7 +115,9 @@ const DetailsMovies = () => {
 
       <VideosMovies />
       <div style={{ marginTop: "100px" }}></div>
-      <SimilarMovies />
+      <div className="movie__similar-section">
+        <SimilarMovies />
+      </div>
 
       <motion.div
         className="movie__links"

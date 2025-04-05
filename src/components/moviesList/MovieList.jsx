@@ -18,6 +18,7 @@ export default function MovieList({
   data,
   error,
   isLoading,
+  footer,
 }) {
   const [visibleMovies, setVisibleMovies] = useState(8);
 
@@ -60,24 +61,28 @@ export default function MovieList({
             ))}
         </div>
 
-        {!showViewAll && data && visibleMovies < data.length && (
-          <div className="list__footer">
-            <button
-              onClick={handleLoadMore}
-              className="list__button btn btn-primary"
-            >
-              Load More
-            </button>
-          </div>
-        )}
+        <div className="list__footer">
+          {footer ? (
+            footer
+          ) : (
+            <>
+              {!showViewAll && data && visibleMovies < data.length && (
+                <button
+                  onClick={handleLoadMore}
+                  className="list__button btn btn-primary"
+                >
+                  Load More
+                </button>
+              )}
 
-        {showViewAll && (
-          <div className="list__footer">
-            <Link to={linkTo} className="list__button btn btn-primary">
-              Explore All {title} <i className="fas fa-arrow-right"></i>
-            </Link>
-          </div>
-        )}
+              {showViewAll && (
+                <Link to={linkTo} className="list__button btn btn-primary">
+                  Explore All {title} <i className="fas fa-arrow-right"></i>
+                </Link>
+              )}
+            </>
+          )}
+        </div>
       </div>
     </Wrapper>
   );
