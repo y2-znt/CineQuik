@@ -34,7 +34,7 @@ export default function MovieHeader({ movie }) {
             <div className="movie__posterBox">
               <img
                 className="movie__poster"
-                src={`https://image.tmdb.org/t/p/original${poster_path}`}
+                src={`https://image.tmdb.org/t/p/w1280${poster_path}`}
                 alt={title}
               />
             </div>

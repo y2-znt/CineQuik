@@ -1,21 +1,23 @@
-import axios from "axios";
-
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
 export const fetchCarouselMovies = async () => {
-  const genresResponse = await axios.get(
+  const genresResponse = await fetch(
     `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`
-  );
-  const genresList = genresResponse.data.genres;
+  ).then((res) => res.json());
+  const genresList = genresResponse.genres;
 
   const [moviesResponse, specificMovieResponse] = await Promise.all([
-    axios.get(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`),
-    axios.get(`${BASE_URL}/movie/569094?api_key=${API_KEY}`),
+    fetch(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`).then((res) =>
+      res.json()
+    ),
+    fetch(`${BASE_URL}/movie/569094?api_key=${API_KEY}`).then((res) =>
+      res.json()
+    ),
   ]);
 
-  const movies = moviesResponse.data.results;
-  const specificMovie = specificMovieResponse.data;
+  const movies = moviesResponse.results;
+  const specificMovie = specificMovieResponse;
 
   // Add the specific movie to the beginning of the array
   const allMovies = [
@@ -39,44 +41,53 @@ export const fetchCarouselMovies = async () => {
 };
 
 export const fetchDetailsMovies = async (id) => {
-  return await axios
-    .get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
-    .then((res) => res.data);
+  const response = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
+  return response.json();
 };
 
 export const fetchPopularMovies = async () => {
-  return await axios
-    .get(`${BASE_URL}/movie/popular?api_key=${API_KEY}`)
-    .then((res) => res.data.results);
+  const response = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}`);
+  const data = await response.json();
+  return data.results;
 };
 
 export const fetchSearchMovies = async (query) => {
   if (query.length <= 1) return [];
-  const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`;
-  const response = await axios.get(url);
-  return response.data.results;
+  const response = await fetch(
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
+  );
+  const data = await response.json();
+  return data.results;
 };
 
 export const fetchRecommendedMovies = async (id) => {
-  return await axios
-    .get(`${BASE_URL}/movie/${id}/recommendations?api_key=${API_KEY}`)
-    .then((res) => res.data.results);
+  const response = await fetch(
+    `${BASE_URL}/movie/${id}/recommendations?api_key=${API_KEY}`
+  );
+  const data = await response.json();
+  return data.results;
 };
 
 export const fetchTopRatedMovies = async () => {
-  return await axios
-    .get(`${BASE_URL}/movie/top_rated?api_key=${API_KEY}`)
-    .then((res) => res.data.results);
+  const response = await fetch(
+    `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`
+  );
+  const data = await response.json();
+  return data.results;
 };
 
 export const fetchVideosMovies = async (id) => {
-  return await axios
-    .get(`${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`)
-    .then((res) => res.data.results);
+  const response = await fetch(
+    `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`
+  );
+  const data = await response.json();
+  return data.results;
 };
 
 export const fetchWatchProvidersMovies = async (id) => {
-  return await axios
-    .get(`${BASE_URL}/movie/${id}/watch/providers?api_key=${API_KEY}`)
-    .then((res) => res.data.results);
+  const response = await fetch(
+    `${BASE_URL}/movie/${id}/watch/providers?api_key=${API_KEY}`
+  );
+  const data = await response.json();
+  return data.results;
 };

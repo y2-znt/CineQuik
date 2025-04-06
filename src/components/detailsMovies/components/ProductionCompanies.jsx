@@ -20,9 +20,7 @@ export default function ProductionCompanies({ companies }) {
                 >
                   <img
                     className="movie__productionComapany"
-                    src={
-                      "https://image.tmdb.org/t/p/original" + company.logo_path
-                    }
+                    src={"https://image.tmdb.org/t/p/w92" + company.logo_path}
                     alt={company.name}
                   />
                   <span>{company.name}</span>

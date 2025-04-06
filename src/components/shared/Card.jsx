@@ -18,7 +18,7 @@ const Cards = ({ movie }) => {
         {!isLoaded && <Skeleton />}
         <img
           className="cards__img"
-          src={`https://image.tmdb.org/t/p/original${movie?.poster_path ?? ""}`}
+          src={`https://image.tmdb.org/t/p/w500${movie?.poster_path ?? ""}`}
           alt={movie?.title || "Movie poster"}
           onLoad={() => setIsLoaded(true)}
           style={{ display: isLoaded ? "block" : "none" }}

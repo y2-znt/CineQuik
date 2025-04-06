@@ -32,7 +32,7 @@ export default function WatchProviders() {
                   {watchProviders.flatrate.map((provider) => (
                     <div key={provider.provider_id} className="provider-card">
                       <img
-                        src={`https://image.tmdb.org/t/p/original${provider.logo_path}`}
+                        src={`https://image.tmdb.org/t/p/w92${provider.logo_path}`}
                         alt={provider.provider_name}
                         className="provider-logo"
                       />
@@ -54,7 +54,7 @@ export default function WatchProviders() {
                   {watchProviders.rent.map((provider) => (
                     <div key={provider.provider_id} className="provider-card">
                       <img
-                        src={`https://image.tmdb.org/t/p/original${provider.logo_path}`}
+                        src={`https://image.tmdb.org/t/p/w92${provider.logo_path}`}
                         alt={provider.provider_name}
                         className="provider-logo"
                       />
