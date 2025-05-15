@@ -1,16 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { fetchWatchProvidersMovies } from "../../../api/moviesApi";
 import "../../../css/details.css";
+import { useWatchProvidersMovies } from "../../../hooks/useMovie";
 import FadeUpOnScroll from "../../animations/FadeUpOnScroll";
 
 export default function WatchProviders() {
   const { id } = useParams();
 
-  const { data } = useQuery({
-    queryKey: ["watchProviders", id],
-    queryFn: () => fetchWatchProvidersMovies(id),
-  });
+  const { data } = useWatchProvidersMovies(id);
 
   const watchProviders = data?.FR;
 

@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { motion } from "motion/react";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -11,16 +10,13 @@ import {
   Pagination,
 } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { fetchCarouselMovies } from "../../api/moviesApi";
 import "../../css/carousel.css";
+import { useCarouselMovies } from "../../hooks/useMovie";
 import FadeUpOnScroll from "../animations/FadeUpOnScroll";
 import { ErrorCarousel, SkeletonCarousel } from "../skeletons/SkeletonCarousel";
 
-const Carousel = () => {
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["carouselMovies"],
-    queryFn: fetchCarouselMovies,
-  });
+export default function Carousel() {
+  const { data, isLoading, error } = useCarouselMovies();
 
   // Add preload link for the first image
   useEffect(() => {
@@ -154,6 +150,4 @@ const Carousel = () => {
       </Swiper>
     </div>
   );
-};
-
-export default Carousel;
+}

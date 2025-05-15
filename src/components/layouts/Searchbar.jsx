@@ -1,20 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchSearchMovies } from "../../api/moviesApi";
 import "../../css/searchbar.css";
-
-const Searchbar = ({ onSearch }) => {
+import { useSearchMovies } from "../../hooks/useMovie";
+export default function Searchbar({ onSearch }) {
   const [query, setQuery] = useState("");
   const [isExpanded, setIsExpanded] = useState(false);
   const searchRef = useRef(null);
 
-  const { data, refetch, error, isLoading } = useQuery({
-    queryKey: ["searchedMovies", query],
-    queryFn: () => fetchSearchMovies(query),
-    enabled: false,
-    onSuccess: (data) => onSearch(data),
-  });
+  const { data, refetch, error, isLoading } = useSearchMovies(query);
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
@@ -134,6 +127,4 @@ const Searchbar = ({ onSearch }) => {
       )}
     </div>
   );
-};
-
-export default Searchbar;
+}

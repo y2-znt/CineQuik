@@ -1,16 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { fetchRecommendedMovies } from "../../../api/moviesApi";
+import { useRecommendedMovies } from "../../../hooks/useMovie";
 import MovieList from "../MovieList";
 
 export default function RecommendedMovies() {
   const { id } = useParams();
 
-  const { data, error, isLoading } = useQuery({
-    queryKey: ["recommendedMovies", id],
-    queryFn: () => fetchRecommendedMovies(id),
-    enabled: !!id,
-  });
+  const { data, error, isLoading } = useRecommendedMovies(id);
 
   return (
     <>

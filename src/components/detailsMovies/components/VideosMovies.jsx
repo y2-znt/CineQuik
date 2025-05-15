@@ -1,21 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
 import { motion } from "motion/react";
 import React from "react";
 import { useParams } from "react-router-dom";
 import YouTube from "react-youtube";
-import { fetchVideosMovies } from "../../../api/moviesApi";
 import "../../../css/details.css";
+import { useVideosMovies } from "../../../hooks/useMovie";
 import SkeletonVideosMovies, {
   ErrorVideosMovies,
 } from "../../skeletons/SkeletonVideosMovies";
 
 const VideosMovies = () => {
   const { id } = useParams();
-
-  const { data, error, isLoading } = useQuery({
-    queryKey: ["videosMovies", id],
-    queryFn: () => fetchVideosMovies(id),
-  });
+  const { data, error, isLoading } = useVideosMovies(id);
 
   if (isLoading) return <SkeletonVideosMovies />;
   if (error) return <ErrorVideosMovies message={error.message} />;

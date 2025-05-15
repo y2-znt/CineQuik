@@ -1,16 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { fetchPopularMovies } from "../../../api/moviesApi";
+import { usePopularMovies } from "../../../hooks/useMovie";
 import MovieList from "../MovieList";
 
 export default function PopularMovieList({
   showViewAll = true,
   useScrollAnimation = false,
 }) {
-  const { data, error, isLoading } = useQuery({
-    queryKey: ["popularMovies"],
-    queryFn: fetchPopularMovies,
-  });
+  const { data, error, isLoading } = usePopularMovies();
 
   return (
     <MovieList

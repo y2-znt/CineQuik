@@ -25,7 +25,7 @@ export default function ProductionCompanies({ companies }) {
                   />
                   <span>{company.name}</span>
                 </motion.div>
-              )
+              ),
           )}
         </div>
       </FadeUpOnScroll>

@@ -1,7 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { fetchDetailsMovies } from "../../api/moviesApi";
 import "../../css/details.css";
+import { useMovieDetails } from "../../hooks/useMovie";
 import RecommendedMovies from "../moviesList/components/RecommendedMovies";
 import SkeletonDetailsMovies, {
   ErrorDetailsMovies,
@@ -13,11 +12,7 @@ import WatchProviders from "./components/WatchProviders";
 
 export default function DetailsMovies() {
   const { id } = useParams();
-
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["detailsMovies", id],
-    queryFn: () => fetchDetailsMovies(id),
-  });
+  const { data, isLoading, error } = useMovieDetails(id);
 
   if (isLoading) return <SkeletonDetailsMovies />;
   if (error) return <ErrorDetailsMovies message={error.message} />;

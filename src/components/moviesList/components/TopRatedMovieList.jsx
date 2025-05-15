@@ -1,16 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { fetchTopRatedMovies } from "../../../api/moviesApi";
+import { useTopRatedMovies } from "../../../hooks/useMovie";
 import MovieList from "../MovieList";
 
 export default function TopRatedMovieList({
   showViewAll = true,
   useScrollAnimation = false,
 }) {
-  const { data, error, isLoading } = useQuery({
-    queryKey: ["topRatedMovies"],
-    queryFn: fetchTopRatedMovies,
-  });
+  const { data, error, isLoading } = useTopRatedMovies();
 
   return (
     <MovieList

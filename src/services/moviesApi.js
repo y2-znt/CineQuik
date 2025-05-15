@@ -3,16 +3,16 @@ const BASE_URL = "https://api.themoviedb.org/3";
 
 export const fetchCarouselMovies = async () => {
   const genresResponse = await fetch(
-    `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`
+    `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`,
   ).then((res) => res.json());
   const genresList = genresResponse.genres;
 
   const [moviesResponse, specificMovieResponse] = await Promise.all([
     fetch(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`).then((res) =>
-      res.json()
+      res.json(),
     ),
     fetch(`${BASE_URL}/movie/569094?api_key=${API_KEY}`).then((res) =>
-      res.json()
+      res.json(),
     ),
   ]);
 
@@ -35,7 +35,7 @@ export const fetchCarouselMovies = async () => {
         genresList.find((genre) => genre.id === genreId) || {
           id: genreId,
           name: "Uncategorized",
-        }
+        },
     ),
   }));
 };
@@ -54,7 +54,7 @@ export const fetchPopularMovies = async () => {
 export const fetchSearchMovies = async (query) => {
   if (query.length <= 1) return [];
   const response = await fetch(
-    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`,
   );
   const data = await response.json();
   return data.results;
@@ -62,7 +62,7 @@ export const fetchSearchMovies = async (query) => {
 
 export const fetchRecommendedMovies = async (id) => {
   const response = await fetch(
-    `${BASE_URL}/movie/${id}/recommendations?api_key=${API_KEY}`
+    `${BASE_URL}/movie/${id}/recommendations?api_key=${API_KEY}`,
   );
   const data = await response.json();
   return data.results;
@@ -70,7 +70,7 @@ export const fetchRecommendedMovies = async (id) => {
 
 export const fetchTopRatedMovies = async () => {
   const response = await fetch(
-    `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`
+    `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`,
   );
   const data = await response.json();
   return data.results;
@@ -78,7 +78,7 @@ export const fetchTopRatedMovies = async () => {
 
 export const fetchVideosMovies = async (id) => {
   const response = await fetch(
-    `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`
+    `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`,
   );
   const data = await response.json();
   return data.results;
@@ -86,7 +86,7 @@ export const fetchVideosMovies = async (id) => {
 
 export const fetchWatchProvidersMovies = async (id) => {
   const response = await fetch(
-    `${BASE_URL}/movie/${id}/watch/providers?api_key=${API_KEY}`
+    `${BASE_URL}/movie/${id}/watch/providers?api_key=${API_KEY}`,
   );
   const data = await response.json();
   return data.results;
