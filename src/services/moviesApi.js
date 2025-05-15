@@ -5,14 +5,15 @@ export const fetchCarouselMovies = async () => {
   try {
     const genresResponse = await fetch(
       `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`
-    ).then((res) => res.json());
-    const genresList = genresResponse.genres;
+    );
+    const genresData = await genresResponse.json();
+    const genresList = genresData.genres;
 
-    const [moviesResponse] = await fetch(
+    const moviesResponse = await fetch(
       `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`
-    ).then((res) => res.json());
-
-    const movies = moviesResponse.results;
+    );
+    const moviesData = await moviesResponse.json();
+    const movies = moviesData.results;
 
     return movies.map((movie) => ({
       ...movie,
